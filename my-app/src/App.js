@@ -2,9 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-const React = require('react');
-const ReactDom = require('react-dom');
-const client = require('./client');
+
 
 class App extends Component {
   render() {
