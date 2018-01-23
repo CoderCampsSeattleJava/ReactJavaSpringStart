@@ -7,22 +7,25 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+
 import com.ReactJavaMySQL.Startup.User;
 import com.ReactJavaMySQL.Startup.UserRepository;
+
 
 @Controller
 @RequestMapping(path="/demo")
 public class MainController {
+	
 
 	@Autowired
 	private UserRepository userRepository;
 	
 	@GetMapping(path="/add")
-	public @ResponseBody String addNewUser (@RequestParam String firstName, String lastName) {
+	public @ResponseBody String addNewUser (@RequestParam String name, @RequestParam String email) {
 		
 		User n = new User();
-		n.setFirstName(firstName);
-		n.setLastName(lastName);
+		n.setName(name);
+		n.setEmail(email);
 		userRepository.save(n);
 		return "saved";
 	}
@@ -30,5 +33,10 @@ public class MainController {
 	@GetMapping(path="/all")
 	public @ResponseBody Iterable<User> getAllUsers() {
 		return userRepository.findAll();
+	}
+	
+	@RequestMapping(value = "/")
+	public String index() {
+		return "index";
 	}
 }
