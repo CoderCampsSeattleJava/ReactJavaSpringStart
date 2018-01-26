@@ -27,7 +27,7 @@ class App extends Component {
      <div>
        {this.state.data.map( (dynamicData,key)=>
          <div key={key}>
-           <a href={'mailto: ' + dynamicData.email}>{dynamicData.name}</a>
+           <p>{dynamicData.name}{dynamicData.email}</p>
            </div>
 
          )
