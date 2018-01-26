@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+const url = 'http://localhost:8080/api/all.json';
+
 class App extends Component {
 
  constructor() {
@@ -8,26 +10,24 @@ class App extends Component {
      data: [],
    }
  }
- componentDidMount() {
-   return fetch('http://localhost:8080/demo/all.json')
+ componentWillMount() {
+   return fetch(url)
      .then((response) => response.json())
-     .then((responseJson) => {
+     .then((json) => {
      
        this.setState({
-         data: []
+         data: json
        })
-       console.log(this.state.data)
+       console.log('parsed json', json)
      })
    }
  render() {
+
    return (
      <div>
-       {
-         this.state.data.map( (dynamicData,key)=>
-         <div>
-           {
-             dynamicData.title
-           }
+       {this.state.data.map( (dynamicData,key)=>
+         <div key={key}>
+           <a href={'mailto: ' + dynamicData.email}>{dynamicData.name}</a>
            </div>
 
          )

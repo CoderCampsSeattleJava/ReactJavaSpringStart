@@ -14,7 +14,7 @@ import com.ReactJavaMySQL.Startup.UserRepository;
 
 @CrossOrigin(origins = "http://localhost:3000")
 @Controller
-@RequestMapping(path="/demo")
+@RequestMapping(path="/api")
 public class MainController {
 	
 
