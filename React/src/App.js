@@ -50,7 +50,7 @@ const Card = props => {
     
         </div>
         <div>
-          {props.blog}
+          {props.href + " One more item"}
         </div>
       </div>
     </div>
@@ -60,7 +60,7 @@ const Card = props => {
 const CardList = props => {
   return (
     <div>
-      {props.cards.map(card => <Card {...card} />)}
+      {props.cards.map(card => <Card key={card.id} {...card} />)}
     </div>
   );
 };
@@ -91,7 +91,7 @@ class Form extends React.Component {
           placeholder="Type command"
           required
         />
-        <button type="submit">Test</button>
+        <button type="submit">Test</button>      
       </form>
     );
   }
