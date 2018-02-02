@@ -29,10 +29,17 @@ public class MainController {
 		return "saved";
 	}
 	
+	@GetMapping(path="/users")
+	public @ResponseBody User getUser(@RequestParam long id) {
+		
+		return userRepository.findOne(id);
+	}
+	
 	@GetMapping(path="/all")
 	public @ResponseBody Iterable<User> getAllUsers() {
 		return userRepository.findAll();
 	}
+	
 	
 	@RequestMapping(value = "/")
 	public String index() {

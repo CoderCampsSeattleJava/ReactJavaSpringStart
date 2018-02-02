@@ -74,11 +74,15 @@ class Form extends React.Component {
     event.preventDefault();
 
     axios
-      .get(`http://localhost:8080/api/all.json`)
+      .get(`http://localhost:8080/api/users?id=${this.state.id}`)
       .then(resp => {
-        this.props.onSubmit(resp.data);
+      
+        if(resp.data.id != undefined) {
+          this.props.onSubmit(resp.data);
+        } else {console.log("ha ha")}
         // this.setState({ userName: "" });
       });
+      
   };
 
   render() {
@@ -86,8 +90,8 @@ class Form extends React.Component {
       <form onSubmit={this.handleSubmit}>
         <input
           type="text"
-          value={this.state.userName}
-          onChange={event => this.setState({ userName: event.target.value })}
+          value={this.state.id}
+          onChange={event => this.setState({ id: event.target.value })}
           placeholder="Type command"
           required
         />
