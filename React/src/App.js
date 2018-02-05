@@ -46,11 +46,11 @@ const Card = props => {
       {/* <img alt="avatar" style={{ width: "70px" }} src={props.avatar_url} /> */}
       <div>
         <div style={{ fontWeight: "bold", color: "blue" }}>
-       {"Id: " + props.id + " " + ", Name: " + " " +props.name + " " + ", Email: " + " " + props.email}
+       {"Id: " + props.id + " " + ", Name: " + " " + props.name + " " + ", Email: " + " " + props.email}
     
         </div>
         <div>
-          {props.href + " One more item"}
+          {props.href + " One more item (href)"}
         </div>
       </div>
     </div>
