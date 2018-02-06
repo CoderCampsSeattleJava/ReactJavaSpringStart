@@ -1,10 +1,22 @@
 import React, { Component } from 'react';
 import axios from "axios";
+import Register from './containers/Register';
+import Login from './containers/Login';
 
-// const url = 'http://localhost:8080/api/all.json';
+// const url = 'http://localhost:8080/api/post.json';
 
 // class App extends Component {
-
+// render () {
+//   return (
+//     // <div className="Register">
+//     // <Register />
+  
+//     <div className="Login">
+//     <Login />
+//     </div>
+//   //  </div>
+//   );
+// }
 //  constructor() {
 //    super()
 //    this.state = {
@@ -25,18 +37,17 @@ import axios from "axios";
 //  render() {
 
 //    return (
-//      <div>
-//        {this.state.data.map( (dynamicData,key)=>
-//          <div key={key}>
-//            <p>{dynamicData.name}{dynamicData.email}</p>
-//            </div>
+//       <div>
+//         {this.state.data.map( (dynamicData,key)=>
+//           <div key={key}>
+//             <p>{dynamicData.name}{dynamicData.email}</p>           </div>
 
 //          )
-//        }
+//         }
 
-//      </div>
-//    )
-//  }
+//       </div>
+//     )
+//   }
 // }
 
 
@@ -124,4 +135,4 @@ class App1 extends React.Component {
 }
 
 
-export default App1;
+export default Login;
