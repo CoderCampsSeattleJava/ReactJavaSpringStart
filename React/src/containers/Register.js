@@ -1,95 +1,66 @@
 import React from 'react';
 import axios from 'axios';
 
-export default class Register extends React.Component {
-    state = {
-        // firstName: '',
-        // lastName: '',
-        // homeState: '',
-        username: '',
-        // email: '',
-        password: '',
-        passwordConf:'',
-    }
 
-    change = e => {
-        this.setState({
-            [e.target.name]: e.target.value
-        });
+export default class Login extends React.Component {
+  constructor(){
+    super();
 
-    };
+this.state = {
 
-    onSubmit = (e) => {
-        //prevent the page auto-refresh
-        e.preventDefault();
-        console.log(this.state);
-    };
+    name: '',
+    email: '',
+  };
+}
+  onChange = e => {
+    const state = this.state
+    state[e.target.name] = e.target.value
+    this.setState(state)
+  
 
-    render() {
-        return (
-            <div>
-                <div style={{ fontWeight: "bold", color: "green" }}> Register Here!</div>
+  }
 
-                <form>
-                    {/* <input
-                        name="firstName"
-                        placeholder="First Name"
-                        required
-                        value={this.state.firstName}
-                        onChange={e => this.change(e)} /><br />
+  onSubmit = (e) => {
+    e.preventDefault();
+    // get our form data out of state
+    // const { name, email } = this.state;
 
-                    <input
-                        name="lastName"
-                        placeholder="Last Name"
-                        value={this.state.lastName}
-                        onChange={e => this.change(e)} /><br />
-
-                    <input
-                        name="homeState"
-                        placeholder="Home State"
-                        value={this.state.homeState}
-                        onChange={e => this.change(e)} /><br /> 
-
-                <input
-                        name="username"
-                        placeholder="Username"
-                        value={this.state.username}
-                        onChange={e => this.change(e)} /><br />
-
-                    <input
-                        name="email"
-                        placeholder="Email"
-                        required
-                        value={this.state.email}
-                        onChange={e => this.change(e)} />
-                    <br /> */}
-
-                    <input
-                        name="username"
-                        placeholder="Username"
-                        value={this.state.username}
-                        onChange={e => this.change(e)} /><br />
-
-                    <input
-                        name="password"
-                        //so it is hidden
-                        // type="password"
-                        placeholder="Password"
-                        value={this.state.password}
-                        onChange={e => this.change(e)} /><br />
-
-                    <input
-                        name="passwordConf"
-                        //so it is hidden
-                        // type="password"
-                        placeholder="Re-Enter Password"
-                        value={this.state.passwordConf}
-                        onChange={e => this.change(e)} /><br />
+    axios.post(`http://localhost:8080/api/post?name=${this.state.name}&email=${this.state.email}`)
+    .then((Response) => {
+      console.log(Response, "hola");
 
 
-                    <button onClick={e => this.onSubmit(e)}>Register</button>
-                </form>
-            </div>
-        );
-    }
-} 
+    }) ;   //access the results here....
+      
+  }
+
+  render() {
+    return (
+      <div>
+        <div style={{ fontWeight: "bold", color: "green" }}> Register Here!</div>
+
+        <form>
+        
+
+          <input
+            name="name"
+            placeholder="name"
+            value={this.state.name}
+            onChange={e => this.onChange(e)} /><br />
+
+          <input
+            name="email"
+            //so it is hidden
+            // type="password"
+            placeholder="email"
+            value={this.state.email}
+            onChange={e => this.onChange(e)} /><br />
+
+
+          <button onClick={e => this.onSubmit(e)}>Submit</button>
+        </form>
+      </div>
+    );
+  }
+}
+

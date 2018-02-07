@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from "axios";
 import Register from './containers/Register';
-import Login from './containers/Login';
+// import Login from './containers/Login';
 
 // const url = 'http://localhost:8080/api/post.json';
 
@@ -135,4 +135,4 @@ class App1 extends React.Component {
 }
 
 
-export default Login;
+export default Register;
