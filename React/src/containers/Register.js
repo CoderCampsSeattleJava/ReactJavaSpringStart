@@ -4,7 +4,7 @@ import { validator, Input, Button, required, email} from 'react-validation';
 
 
 
-class Register extends React.Component {
+export default class Register extends React.Component {
   // constructor() {
   //   super();
 
@@ -140,4 +140,3 @@ class Register extends React.Component {
   }
 }
 
-export default Register;

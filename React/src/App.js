@@ -3,7 +3,7 @@ import axios from "axios";
 import Register from './containers/Register';
 
 
-class App extends React.Component {
+export default class App extends React.Component {
 
   render(){
     return (
@@ -14,4 +14,3 @@ class App extends React.Component {
   }
 }
 
-export default App;
