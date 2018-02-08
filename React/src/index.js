@@ -1,11 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+import 'react-bootstrap';
+import 'bootstrap-utilities';
+import Dashboard from './components/Dashboard';
+import './styles.css';
 
 
 
-ReactDOM.render(<App />, document.getElementById('root'));
+
+// Render App.js
+ReactDOM.render(<Dashboard />, document.getElementById('root'));
+
+
 
 
 
