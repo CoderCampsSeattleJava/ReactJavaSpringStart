@@ -22,25 +22,38 @@ public class MainController {
 	private UserRepository userRepository;
 	
 	@PostMapping(path="/post")
-	public @ResponseBody String postNewUser (@RequestParam String name, @RequestParam String email) {
+	public @ResponseBody String postNewUser (@RequestParam  String first_name, @RequestParam String last_name, @RequestParam String email, @RequestParam String home_state, 
+			@RequestParam String username, @RequestParam String password, @RequestParam String password_conf) {
 		
 		User n = new User();
-		n.setName(name);
+		n.setFirst_Name(first_name);
+		n.setLast_Name(last_name);
+		n.setHome_State(home_state);
 		n.setEmail(email);
+		n.setUsername(username);
+		n.setPassword(password);
+		n.setPassword_Conf(password_conf);
 		userRepository.save(n);
-		return "finaly";
+		return "Saved in DB 'POST'";
 	}
 	
 	
 	@GetMapping(path="/add")
-	public @ResponseBody String addNewUser (@RequestParam String name, @RequestParam String email) {
+	public @ResponseBody String addNewUser (@RequestParam  String first_name, @RequestParam String last_name, @RequestParam String email, @RequestParam String home_state, 
+			@RequestParam String username, @RequestParam String password, @RequestParam String password_conf) {
 		
 		User n = new User();
-		n.setName(name);
+		n.setFirst_Name(first_name);
+		n.setLast_Name(last_name);
+		n.setHome_State(home_state);
 		n.setEmail(email);
+		n.setUsername(username);
+		n.setPassword(password);
+		n.setPassword_Conf(password_conf);
 		userRepository.save(n);
-		return "saved";
+		return "saved 'GET'";
 	}
+	
 	
 	@GetMapping(path="/users")
 	public @ResponseBody User getUser(@RequestParam long id) {

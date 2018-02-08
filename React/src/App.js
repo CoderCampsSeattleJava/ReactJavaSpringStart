@@ -88,7 +88,7 @@ class Form extends React.Component {
       .get(`http://localhost:8080/api/users?id=${this.state.id}`)
       .then(resp => {
       
-        if(resp.data.id != undefined) {
+        if(resp.data.id !== undefined) {
           this.props.onSubmit(resp.data);
         } else {console.log("ha ha")}
         // this.setState({ userName: "" });
