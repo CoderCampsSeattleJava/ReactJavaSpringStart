@@ -65,7 +65,7 @@ export default class Register extends React.Component {
 
         <form>
 
-          <Input
+          <input
             type="text"
             name="first_name"
             placeholder="First Name"
@@ -75,7 +75,7 @@ export default class Register extends React.Component {
             maxLength='45'
             required /><br />
 
-          <Input
+          <input
             name="last_name"
             placeholder="Last Name"
             value={this.props.last_name}
@@ -84,7 +84,7 @@ export default class Register extends React.Component {
             maxLength='45'
             required  /><br />
 
-          <Input
+          <input
             name="home_state"
             placeholder="Home State Initials"
             value={this.props.home_state}
@@ -93,7 +93,7 @@ export default class Register extends React.Component {
             maxLength='2'
             required  /><br />
 
-          <Input
+          <input
             name="email"
             placeholder="Enter Email"
             value={this.props.email}
@@ -102,7 +102,7 @@ export default class Register extends React.Component {
             minLength='5'
             validations={[required, email]}  /><br />
 
-          <Input
+          <input
             name="username"
             placeholder="Select an Username"
             value={this.props.username}
@@ -111,7 +111,7 @@ export default class Register extends React.Component {
             maxLength='16'
             required  /><br />
 
-          <Input
+          <input
             name="password"
             //so it is hidden
             type="password"
@@ -122,7 +122,7 @@ export default class Register extends React.Component {
             maxLength='16'
             required  /><br />
 
-          <Input
+          <input
             name="password_conf"
             //so it is hidden
             type="password"
@@ -133,7 +133,7 @@ export default class Register extends React.Component {
             maxLength='16'
             required  /><br />
 
-          <Button type='submit' onClick={e => this.onSubmit(e)}>Register</Button>
+          <button type='submit' onClick={e => this.onSubmit(e)}>Register</button>
         </form>
       </div>
     );
