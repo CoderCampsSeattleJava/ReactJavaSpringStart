@@ -1,8 +1,10 @@
 import React from 'react';
 import axios from 'axios';
+import { validator, Input, Button, required, email} from 'react-validation';
 
 
-export default class Register extends React.Component {
+
+class Register extends React.Component {
   // constructor() {
   //   super();
 
@@ -27,46 +29,25 @@ export default class Register extends React.Component {
     this.setState(state)
   };
 
-  checkForErrors = () => {
-    let isError = false;
-    const errors = {
-      emailError: '',
-      passwordError: '',
-      password_confError: '',
-
-    };
-
-    this.setState({
-      ...this.setState,
-      ...errors
-    });
-
-    return isError;
-  }
-
+ 
   onSubmit = (e) => {
     //prevent auto-refresh
-   // e.preventDefault();
+  //  e.preventDefault();
 
 
-    const err = this.checkForErrors();
-    if (!err) {
-      //clear form
-      this.setState({
-        first_name: '',
-        last_name: '',
-        home_state: '',
-        email: '',
-        emailError: '',
-        username: '',
-        password: '',
-        passwordError: '',
-        password_conf: '',
-        password_confError: '',
-      });
-    }
+//     const required = (value) => {
+//       if (!value.toString().trim().length){
+//         return 'require';
 
+//       }
 
+//     };
+
+//     const email = (value) => {
+//    if (!validator.isEmail(value)){
+//      return `$(value) is not a valid email.`
+//    }
+//  };
 
     axios.post(`http://localhost:8080/api/post?first_name=${this.state.first_name}&last_name=${this.state.last_name}&home_state=${this.state.home_state}&email=${this.state.email}&username=${this.state.username}&password=${this.state.password}&password_conf=${this.state.password_conf}`)
       .then((Response) => {
@@ -84,7 +65,7 @@ export default class Register extends React.Component {
 
         <form>
 
-          <input
+          <Input
             type="text"
             name="first_name"
             placeholder="First Name"
@@ -94,7 +75,7 @@ export default class Register extends React.Component {
             maxLength='45'
             required /><br />
 
-          <input
+          <Input
             name="last_name"
             placeholder="Last Name"
             value={this.props.last_name}
@@ -103,7 +84,7 @@ export default class Register extends React.Component {
             maxLength='45'
             required  /><br />
 
-          <input
+          <Input
             name="home_state"
             placeholder="Home State Initials"
             value={this.props.home_state}
@@ -112,16 +93,16 @@ export default class Register extends React.Component {
             maxLength='2'
             required  /><br />
 
-          <input
+          <Input
             name="email"
             placeholder="Enter Email"
             value={this.props.email}
             onChange={e => this.onChange(e)}
             type='email'
             minLength='5'
-            required  /><br />
+            validations={[required, email]}  /><br />
 
-          <input
+          <Input
             name="username"
             placeholder="Select an Username"
             value={this.props.username}
@@ -130,7 +111,7 @@ export default class Register extends React.Component {
             maxLength='16'
             required  /><br />
 
-          <input
+          <Input
             name="password"
             //so it is hidden
             type="password"
@@ -141,7 +122,7 @@ export default class Register extends React.Component {
             maxLength='16'
             required  /><br />
 
-          <input
+          <Input
             name="password_conf"
             //so it is hidden
             type="password"
@@ -152,10 +133,11 @@ export default class Register extends React.Component {
             maxLength='16'
             required  /><br />
 
-          <button type="button" onClick={e => this.onSubmit(e)}>Register</button>
+          <Button type='submit' onClick={e => this.onSubmit(e)}>Register</Button>
         </form>
       </div>
     );
   }
 }
 
+export default Register;
