@@ -4,6 +4,8 @@ import { Navbar, Nav, MenuItem, NavDropdown, NavItem, PageHeader, Grid, Row, Col
 
 
 
+
+
 const Container1 = (props) => {
   return (
     <Grid className="position-absolute" >
@@ -62,9 +64,11 @@ const Navbar1 = (props) => {
 
     <Navbar>
       <Navbar.Header>
-        <Navbar.Brand>
-          <a href="#home" >Coder Camp Seatle</a>
-        </Navbar.Brand>
+        <Nav>
+          <NavItem eventKey={4} href="/HomePage">
+            Coder Dudes
+            </NavItem>
+        </Nav>
       </Navbar.Header>
       <Nav>
         <NavItem eventKey={1} href="#Logout">
@@ -76,7 +80,6 @@ const Navbar1 = (props) => {
         <NavDropdown eventKey={3} title="Documentation" id="basic-nav-dropdown">
           <MenuItem eventKey={3.1} href="https://reactjs.org/">React</MenuItem>
           <MenuItem eventKey={3.2} href="https://react-bootstrap.github.io/">React Bootstrap</MenuItem>
-          <MenuItem eventKey={3.3}>Spring Boot</MenuItem>
         </NavDropdown>
       </Nav>
     </Navbar>
@@ -92,10 +95,11 @@ class Dashboard extends Component {
   render() {
     return (
       <div>
-       <Navbar1 />
-       <PageHeader1 />
-       <Container1 />
-       
+        <Navbar1 />
+        <PageHeader1 />
+        <Container1 />
+
+
       </div>
     );
   };
