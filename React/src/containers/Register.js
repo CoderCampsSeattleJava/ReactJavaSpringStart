@@ -1,139 +1,200 @@
 import React from 'react';
 import axios from 'axios';
-import { validator, Input, Button, required, email} from 'react-validation';
+import ReactDOM from 'react-dom';
 
+function validate(first_name, last_name, home_state, email, username, password, password_conf) {
+
+  const errors = [];
+
+  if (first_name.length === 0) {
+    errors.push("First name can't be empty");
+  }
+  if (last_name.length === 0) {
+    errors.push("Last name can't be empty");
+  }
+  if (home_state.length === 0) {
+    errors.push("Please enter your State Initials");
+  }
+  if (username.length === 0) {
+    errors.push("Username is required");
+  }
+  if (!username.indexOf("[0-9]")) {
+    alert("Numbers only")
+  }
+  if (email.length < 5) {
+    errors.push("Email should be at least 5 charcters long");
+  }
+  if (email.split('').filter(x => x === '@').length !== 1) {
+    errors.push("Email should contain a @");
+  }
+  if (email.indexOf('.') === -1) {
+    errors.push("Email should contain at least one dot");
+  }
+  // if (password.length, password_conf.length < 8) {
+  //   errors.push("Password should be at least 8 characters long");
+  // }
+
+  // if (password.length < 8 != password_conf.length < 8) {
+  //   errors.push("Passwords should match");
+  // }
+
+  return errors;
+}
 
 
 export default class Register extends React.Component {
-  // constructor() {
-  //   super();
+  constructor() {
+    super();
+    this.state = {
+      first_name: '',
+      last_name: '',
+      home_state: '',
+      email: '',
+      username: '',
+      password: '',
+      password_conf: '',
 
-  state = {
+      errors: [],
+    };
 
-    first_name: '',
-    last_name: '',
-    home_state: '',
-    email: '',
-    emailError: '',
-    username: '',
-    password: '',
-    passwordError: '',
-    password_conf: '',
-    password_confError: '',
-  };
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
 
 
-  onChange = e => {
-    const state = this.state
-    state[e.target.name] = e.target.value
-    this.setState(state)
-  };
 
- 
+  handleSubmit(e) {
+    //e.preventDefault();
+
+    const { first_name, last_name, home_state, email, username, password, password_conf } = this.state;
+
+    const errors = validate(first_name, last_name, home_state, email, username, password, password_conf);
+    if (errors.length > 0) {
+      this.setState({ errors });
+      return;
+    
+    }
+
+  }
+
+
   onSubmit = (e) => {
-    //prevent auto-refresh
-  //  e.preventDefault();
-
-
-//     const required = (value) => {
-//       if (!value.toString().trim().length){
-//         return 'require';
-
-//       }
-
-//     };
-
-//     const email = (value) => {
-//    if (!validator.isEmail(value)){
-//      return `$(value) is not a valid email.`
-//    }
-//  };
 
     axios.post(`http://localhost:8080/api/post?first_name=${this.state.first_name}&last_name=${this.state.last_name}&home_state=${this.state.home_state}&email=${this.state.email}&username=${this.state.username}&password=${this.state.password}&password_conf=${this.state.password_conf}`)
       .then((Response) => {
         console.log(Response, "Registered successfully");
 
-
-      });   //access the results here....
+      });
 
   }
 
   render() {
+    const { errors } = this.state;
+    const { first_name, last_name, home_state, email, username, password, password_conf } = this.state;
+    const isEnabled =
+      first_name.length > 1 &&
+      last_name.length > 1 &&
+      home_state.length === 2 &&
+      email.length > 5 &&
+      email.length < 45 &&
+      username.length > 7 &&
+      password.length > 7 &&
+      password_conf.length > 7 &&
+      password == password_conf;
+
     return (
       <div>
         <div style={{ fontWeight: "bold", color: "green" }}>Register Here!</div>
 
-        <form>
+        <form onSubmit={this.handleSubmit}>
+          {errors.map(error => (
+            <p key={error}>Error: {error}</p>
+          ))}
 
           <input
+            value={this.state.first_name}
+            onChange={evt => this.setState({ first_name: evt.target.value })}
             type="text"
-            name="first_name"
+            // pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+            title="A-Z a-z characters only"
             placeholder="First Name"
-            value={this.props.first_name}
-            onChange={e => this.onChange(e)}
             minLength='1'
             maxLength='45'
-            required /><br />
+            required
+          /><br />
 
           <input
-            name="last_name"
+            value={this.state.last_name}
+            onChange={evt => this.setState({ last_name: evt.target.value })}
+            type="text"
+            //pattern="[a-zA-Z]"
+            title="A-Z a-z characters only"
             placeholder="Last Name"
-            value={this.props.last_name}
-            onChange={e => this.onChange(e)}
             minLength='1'
             maxLength='45'
-            required  /><br />
+            required
+          /><br />
 
           <input
-            name="home_state"
+            value={this.state.home_state}
+            onChange={evt => this.setState({ home_state: evt.target.value })}
+            type="text"
             placeholder="Home State Initials"
-            value={this.props.home_state}
-            onChange={e => this.onChange(e)}
+            //pattern="[A-Z]"
+            title="2 state initials only ex.(UT Utah)"
             minLength='2'
             maxLength='2'
-            required  /><br />
+            required
+          /><br />
 
           <input
-            name="email"
-            placeholder="Enter Email"
-            value={this.props.email}
-            onChange={e => this.onChange(e)}
+            value={this.state.email}
+            onChange={evt => this.setState({ email: evt.target.value })}
+            type="email"
+            placeholder="Email"
             type='email'
+            //pattern="[a-zA-Z@._-]"
+            title="Must contain @ and . ex. (mail@email.com)"
             minLength='5'
-            validations={[required, email]}  /><br />
+            required
+          /><br />
 
-          <input
-            name="username"
-            placeholder="Select an Username"
-            value={this.props.username}
-            onChange={e => this.onChange(e)}
+          <input ref='text'
+            value={this.state.username}
+            onChange={evt => this.setState({ username: evt.target.value })}
+            type="text"
+            //pattern="[a-zA-Z0-9_!$]"
+            title="Must contain A-Z a-z 0-9 _!$ only)"
+            placeholder="Username"
             minLength='8'
-            maxLength='16'
-            required  /><br />
+            maxLength='15'
+            required
+          /><br />
 
           <input
-            name="password"
-            //so it is hidden
+            value={this.state.password}
+            onChange={evt => this.setState({ password: evt.target.value })}
             type="password"
-            placeholder="Enter Password"
-            value={this.props.password}
-            onChange={e => this.onChange(e)}
+            //pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{8,16}"
+            title="Must contain A-Z a-z 0-9 _!$"
+            placeholder="Password"
             minLength='8'
             maxLength='16'
-            required  /><br />
+            required
+          /><br />
 
           <input
-            name="password_conf"
-            //so it is hidden
+            value={this.state.password_conf}
+            onChange={evt => this.setState({ password_conf: evt.target.value })}
             type="password"
-            placeholder="Re-Enter Password"
-            value={this.props.password_conf}
-            onChange={e => this.onChange(e)}
+            //pattern="(?=.*\d)(?=.*[0-9]).{8,16}"
+            title="Must match previous password A-Z a-z 0-9 _!$"
+            placeholder="Re-Enter your Password"
             minLength='8'
             maxLength='16'
-            required  /><br />
+            required
+          /> <br />
 
-          <button type='submit' onClick={e => this.onSubmit(e)}>Register</button>
+          <button disabled={!isEnabled} onClick={e => this.onSubmit(e)}>Register</button>
         </form>
       </div>
     );
