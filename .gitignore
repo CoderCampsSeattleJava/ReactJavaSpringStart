@@ -1,8 +1,8 @@
-/.metadata/
-/.recommenders/
 
-node_modules/
+\.metadata/
 
 Java/bin/
 
-React/package-lock\.json
+Java/target/
+
+node_modules/
