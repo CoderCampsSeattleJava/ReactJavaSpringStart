@@ -1,41 +1,21 @@
 import React, { Component } from 'react';
+import axios from "axios";
+import Register from './containers/Register';
 
-const url = 'http://localhost:8080/api/all.json';
 
-class App extends Component {
+ class App extends React.Component {
 
- constructor() {
-   super()
-   this.state = {
-     data: [],
-   }
- }
- componentWillMount() {
-   return fetch(url)
-     .then((response) => response.json())
-     .then((json) => {
-     
-       this.setState({
-         data: json
-       })
-       console.log('parsed json', json)
-     })
-   }
- render() {
-
-   return (
-     <div>
-       {this.state.data.map( (dynamicData,key)=>
-         <div key={key}>
-           <p>{dynamicData.name}{dynamicData.email}</p>
-           </div>
-
-         )
-       }
-
-     </div>
-   )
- }
+  
+  render() {
+    return (
+      <div>
+        <Register />
+ 
+      </div>
+    );
+  }
 }
-
-export default App;
+ 
+ 
+export default Register;
+    
