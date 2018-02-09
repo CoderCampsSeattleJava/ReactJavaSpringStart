@@ -2,3 +2,7 @@
 /.recommenders/
 
 node_modules/
+
+Java/bin/
+
+React/package-lock\.json
