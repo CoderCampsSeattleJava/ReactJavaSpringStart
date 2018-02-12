@@ -1,9 +1,7 @@
 import React from 'react';
-<<<<<<< HEAD
 import ReactDOM from 'react-dom';
 import App from './App';
 import Register from './containers/Register';
-=======
 import { render } from 'react-dom';
 import 'react-bootstrap';
 import './styles.css';
@@ -26,7 +24,6 @@ render(
 );
 
 
->>>>>>> Dashboard
 
 
 

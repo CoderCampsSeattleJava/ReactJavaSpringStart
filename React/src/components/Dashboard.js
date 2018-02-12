@@ -1,10 +1,6 @@
         import React, { Component } from 'react';
 import { Navbar, Nav, MenuItem, NavDropdown, NavItem, PageHeader, Grid, Row, Col, ListGroup, ListGroupItem, Jumbotron, Button } from 'react-bootstrap';
- 
- 
- 
- 
- 
+  
  
 const Container1 = (props) => {
   return (
