@@ -9,12 +9,13 @@ import { Navbar, Nav, MenuItem, NavDropdown, NavItem, PageHeader, Grid, Row, Col
 
 import {  Dashboard } from './screens';
 import {  BrowserRouter as Router, Route } from 'react-router-dom';
+import HomePage from './screens/HomePage';
 
  
 const Router1 = () => (
     <Router>
     <div>
-        {/* <Route path="/HomePage" component={HomePage} /> */}
+        <Route path="/HomePage" component={HomePage} />
         <Route path="/Dashboard" component={Dashboard} />
         <Route path='/Register' component={Register}/>
     </div>

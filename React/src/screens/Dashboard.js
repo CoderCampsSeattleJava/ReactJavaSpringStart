@@ -1,7 +1,7 @@
-        import React, { Component } from 'react';
+import React, { Component } from 'react';
 import { Navbar, Nav, MenuItem, NavDropdown, NavItem, PageHeader, Grid, Row, Col, ListGroup, ListGroupItem, Jumbotron, Button } from 'react-bootstrap';
-  
- 
+
+
 const Container1 = (props) => {
   return (
     <Grid className="position-absolute" >
@@ -35,28 +35,28 @@ const Container1 = (props) => {
               This is a simple hero unit, a simple jumbotron-style component for calling
               extra attention to featured content or information.
             </p>
-<p>
+            <p>
               <Button bsStyle="primary">Learn more</Button>
             </p>
           </Jumbotron>
         </Col>
- 
+
       </Row>
     </Grid>
   );
 }
 const PageHeader1 = (props) => {
   return (
- 
+
     <PageHeader pullCenter>
       Example page header <small>Subtext for header</small>
     </PageHeader>
- 
+
   );
 }
 const Navbar1 = (props) => {
   return (
- <Navbar>
+    <Navbar>
       <Navbar.Header>
         <Nav>
           <NavItem eventKey={4} href="/HomePage">
@@ -74,17 +74,17 @@ const Navbar1 = (props) => {
         <NavDropdown eventKey={3} title="Documentation" id="basic-nav-dropdown">
           <MenuItem eventKey={3.1} href="https://reactjs.org/">React</MenuItem>
           <MenuItem eventKey={3.2} href="https://react-bootstrap.github.io/">React Bootstrap</MenuItem>
- </NavDropdown>
+        </NavDropdown>
       </Nav>
     </Navbar>
- 
+
   );
 }
- 
- 
- 
+
+
+
 // ROOT Route Like App.js
- 
+
 class Dashboard extends Component {
   render() {
     return (
@@ -92,11 +92,11 @@ class Dashboard extends Component {
         <Navbar1 />
         <PageHeader1 />
         <Container1 />
- 
- 
+
+
       </div>
     );
   };
 };
- 
+
 export default Dashboard;
