@@ -11,6 +11,7 @@ Java/target/
 >>>>>>> Dashboard
 
 node_modules/
+<<<<<<< HEAD
 Java/bin/model.mwb
 Java/bin/mvnw
 Java/bin/model.mwb
@@ -25,5 +26,7 @@ Java/bin/src/main/resources/templates/index.html
 Java/bin/src/test/java/com/ReactJavaMySQL/Startup/StartupApplicationTests.class
 React/package-lock.json
 React/webpack.config.js
+=======
+>>>>>>> ExtraCommits
 
 axiostest01/
