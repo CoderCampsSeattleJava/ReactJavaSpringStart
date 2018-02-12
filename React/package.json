@@ -34,10 +34,10 @@
   },
   "devDependencies": {
     "css-loader": "^0.28.9",
-    "react-bootstrap": "^0.32.1",
-    "redux": "^3.7.2",
-    "style-loader": "^0.20.1",
     "element-theme-default": "^1.4.13",
-    "react-devtools": "^3.0.0"
+    "react-bootstrap": "^0.32.1",
+    "react-devtools": "^3.0.0",
+    "redux": "^3.7.2",
+    "style-loader": "^0.20.1"
   }
 }
