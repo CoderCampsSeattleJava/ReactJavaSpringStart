@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from "axios";
-import Register from './containers/Register';
+import Register from './screens/Register';
 
 
  class App extends React.Component {
