@@ -5,10 +5,14 @@
   "dependencies": {
     "axios": "^0.17.1",
     "bootstrap": "^4.0.0",
+    "material-ui": "^0.20.0",
     "react": "^16.2.0",
+    "react-background-image-loader": "0.0.5",
+    "react-center": "^1.1.1",
     "react-dom": "^16.2.0",
     "react-http-request": "^1.0.3",
     "react-scripts": "1.1.0",
+    "react-tap-event-plugin": "^3.0.2",
     "react-validate-form": "^1.0.6",
     "react-validation": "^3.0.7",
     "redux": "^3.7.2",
@@ -21,6 +25,7 @@
     "eject": "react-scripts eject"
   },
   "devDependencies": {
+    "element-theme-default": "^1.4.13",
     "react-devtools": "^3.0.0"
   }
 }
