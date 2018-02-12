@@ -4,7 +4,7 @@ import App from './App';
 import Register from './containers/Register';
 import { render } from 'react-dom';
 import ReactBootstrap from 'react-bootstrap';
-// import './styles.css';
+import './styles.css';
 import { Navbar, Nav, MenuItem, NavDropdown, NavItem, PageHeader, Grid, Row, Col, ListGroup, ListGroupItem, Jumbotron, Button } from 'react-bootstrap';
 
 import {  Dashboard } from './screens';

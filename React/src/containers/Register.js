@@ -9,6 +9,7 @@ import { red700, blue700, grey700 } from 'material-ui/styles/colors';
 import Center from 'react-center';
 import BackgroundImage from 'react-background-image-loader';
 
+
 function validate(first_name, last_name, home_state, email, username, password, password_conf) {
 
   const errors = [];
