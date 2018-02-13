@@ -14,7 +14,7 @@ const Navbar1 = (props) => {
            </Navbar.Header>
            <Navbar.Collapse>
                <Nav>
-                   <NavItem eventKey={1} href="/Dashbord">
+                   <NavItem eventKey={1} href="/Dashboard">
                        Dashboard
        </NavItem>
                </Nav>
@@ -22,7 +22,7 @@ const Navbar1 = (props) => {
                    <NavItem eventKey={2} href="#Login">
                        Login
        </NavItem>
-                   <NavItem eventKey={3} href="#Register">
+                   <NavItem eventKey={3} href="/Register">
                        Register
        </NavItem>
                </Nav>
