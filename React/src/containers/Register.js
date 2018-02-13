@@ -71,7 +71,7 @@ export default class Register extends React.Component {
 
 
   handleSubmit(e) {
-    //e.preventDefault();
+    e.preventDefault();
 
     const { first_name, last_name, home_state, email, username, password, password_conf } = this.state;
 
