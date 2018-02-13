@@ -1,4 +1,4 @@
-package Models;
+package com.ReactJavaMySQL.CoderDudes;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
