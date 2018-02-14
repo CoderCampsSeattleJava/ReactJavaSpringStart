@@ -1,6 +1,14 @@
 import React from 'react';
 import axios from 'axios';
 import ReactDOM from 'react-dom';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import TextField from 'material-ui/TextField';
+//import RaisedButton from 'material-ui/RaisedButton';
+import injectTapEventPlugin from 'react-tap-event-plugin';
+import { red700, blue700, grey700 } from 'material-ui/styles/colors';
+import Center from 'react-center';
+import BackgroundImage from 'react-background-image-loader';
+
 
 function validate(first_name, last_name, home_state, email, username, password, password_conf) {
 
@@ -63,7 +71,7 @@ export default class Register extends React.Component {
 
 
   handleSubmit(e) {
-    //e.preventDefault();
+    e.preventDefault();
 
     const { first_name, last_name, home_state, email, username, password, password_conf } = this.state;
 
@@ -71,7 +79,6 @@ export default class Register extends React.Component {
     if (errors.length > 0) {
       this.setState({ errors });
       return;
-    
     }
 
   }
@@ -102,101 +109,136 @@ export default class Register extends React.Component {
       password == password_conf;
 
     return (
-      <div>
-        <div style={{ fontWeight: "bold", color: "green" }}>Register Here!</div>
 
-        <form onSubmit={this.handleSubmit}>
-          {errors.map(error => (
-            <p key={error}>Error: {error}</p>
-          ))}
+      <MuiThemeProvider >
+        <Center>        
+        <div>
+          <div style={{ fontWeight: "bold", color: "#0F86AC", fontSize:"30" }}>Register Here!</div>
 
-          <input
-            value={this.state.first_name}
-            onChange={evt => this.setState({ first_name: evt.target.value })}
-            type="text"
+          <form onSubmit={this.handleSubmit}>
+            {errors.map(error => (
+              <p key={error}>Error: {error}</p>
+            ))}
+
+            <TextField id='first_name'
+              value={this.state.first_name}
+              onChange={evt => this.setState({ first_name: evt.target.value })}
+              type="text"
+              title="A-Z a-z characters only"
+              hintText="First Name"
+              floatingLabelText='First Name'
+              minLength='1'
+              maxLength='45'
+              floatingLabelFixed
+              required
+            //errorText="This field is required"           
             // pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
-            title="A-Z a-z characters only"
-            placeholder="First Name"
-            minLength='1'
-            maxLength='45'
-            required
-          /><br />
+            //placeholder="First Name"             
+            /><br />
 
-          <input
-            value={this.state.last_name}
-            onChange={evt => this.setState({ last_name: evt.target.value })}
-            type="text"
-            //pattern="[a-zA-Z]"
-            title="A-Z a-z characters only"
-            placeholder="Last Name"
-            minLength='1'
-            maxLength='45'
-            required
-          /><br />
+            <TextField id='last_name'
+              value={this.state.last_name}
+              onChange={evt => this.setState({ last_name: evt.target.value })}
+              type="text"
+              title="A-Z a-z characters only"
+              hintText='Last Name'
+              floatingLabelText='Last Name'
+              minLength='1'
+              maxLength='45'
+              floatingLabelFixed
+              required
+            //placeholder="Last Name"
+            //pattern="[a-zA-Z]"              
+            /><br />
 
-          <input
-            value={this.state.home_state}
-            onChange={evt => this.setState({ home_state: evt.target.value })}
-            type="text"
-            placeholder="Home State Initials"
-            //pattern="[A-Z]"
-            title="2 state initials only ex.(UT Utah)"
-            minLength='2'
-            maxLength='2'
-            required
-          /><br />
+            <TextField id="home_state"
+              value={this.state.home_state}
+              onChange={evt => this.setState({ home_state: evt.target.value })}
+              type="text"
+              title="2 state initials only ex.(UT Utah)"
+              hintText='Home State Initials'
+              floatingLabelText='Home State'
+              minLength='2'
+              maxLength='2'
+              floatingLabelFixed
+              required
+            // placeholder="Home State Initials"
+            //pattern="[A-Z]
+            /><br />
 
-          <input
-            value={this.state.email}
-            onChange={evt => this.setState({ email: evt.target.value })}
-            type="email"
-            placeholder="Email"
-            type='email'
+            <TextField id='email'
+              value={this.state.email}
+              onChange={evt => this.setState({ email: evt.target.value })}
+              type="email"
+              title="Must contain @ and . ex. (mail@email.com)"
+              hintText='Enter your email'
+              floatingLabelText='Enter your email'
+              minLength='5'
+              floatingLabelFixed
+              required
+            //placeholder="Email"
+            //hintStyle='dark'
             //pattern="[a-zA-Z@._-]"
-            title="Must contain @ and . ex. (mail@email.com)"
-            minLength='5'
-            required
-          /><br />
+            /><br />
 
-          <input ref='text'
-            value={this.state.username}
-            onChange={evt => this.setState({ username: evt.target.value })}
-            type="text"
-            //pattern="[a-zA-Z0-9_!$]"
-            title="Must contain A-Z a-z 0-9 _!$ only)"
-            placeholder="Username"
-            minLength='8'
-            maxLength='15'
-            required
-          /><br />
 
-          <input
-            value={this.state.password}
-            onChange={evt => this.setState({ password: evt.target.value })}
-            type="password"
+            <TextField id='username'
+              value={this.state.username}
+              onChange={evt => this.setState({ username: evt.target.value })}
+              type="text"
+              title="Must contain A-Z a-z 0-9 _!$ only)"
+              hintText='Username (8 - 16 Characters)'
+              floatingLabelText='Enter an Username'
+              minLength='8'
+              maxLength='15'
+              floatingLabelFixed
+              required
+            //pattern="[a-zA-Z0-9_!$]"  
+            //placeholder="Username"
+            /><br />
+
+            <TextField id='password'
+              value={this.state.password}
+              onChange={evt => this.setState({ password: evt.target.value })}
+              type="password"
+              title="Must contain A-Z a-z 0-9 _!$"
+              hintText='Please enter a Password '
+              floatingLabelText='Please enter a Password'
+              minLength='8'
+              maxLength='15'
+              floatingLabelFixed
+              required
+            //placeholder="Password"
             //pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{8,16}"
-            title="Must contain A-Z a-z 0-9 _!$"
-            placeholder="Password"
-            minLength='8'
-            maxLength='16'
-            required
-          /><br />
+            /><br />
 
-          <input
-            value={this.state.password_conf}
-            onChange={evt => this.setState({ password_conf: evt.target.value })}
-            type="password"
+            <TextField id='password_conf'
+              value={this.state.password_conf}
+              onChange={evt => this.setState({ password_conf: evt.target.value })}
+              type="password"
+              title="Must match previous Password"
+              hintText='Re-enter previous Password'
+              floatingLabelText='Re-enter prevuios Password'
+              minLength='8'
+              maxLength='15'
+              floatingLabelFixed
+              required
             //pattern="(?=.*\d)(?=.*[0-9]).{8,16}"
-            title="Must match previous password A-Z a-z 0-9 _!$"
-            placeholder="Re-Enter your Password"
-            minLength='8'
-            maxLength='16'
-            required
-          /> <br />
+            //placeholder="Re-Enter your Password"
+            /> <br />
 
-          <button disabled={!isEnabled} onClick={e => this.onSubmit(e)}>Register</button>
-        </form>
-      </div>
+            <button disabled={!isEnabled} onClick={e => this.onSubmit(e)}>Register</button>
+          
+          </form>
+          
+        </div>
+        {/* <div class="checkbox">
+
+       <Label><Input type="checkbox"> Remember me</Input></Label>
+   </div> */}
+   </Center>
+      </MuiThemeProvider >
+       
     );
   }
 }

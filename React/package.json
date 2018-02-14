@@ -4,13 +4,20 @@
   "private": true,
   "dependencies": {
     "axios": "^0.17.1",
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "material-ui": "^0.20.0",
     "react": "^16.2.0",
+    "react-background-image-loader": "0.0.5",
+    "react-body-images": "^1.0.1",
+    "react-center": "^1.1.1",
     "react-dom": "^16.2.0",
     "react-http-request": "^1.0.3",
+    "react-router": "^4.2.0",
+    "react-router-dom": "^4.2.2",
     "react-scripts": "1.1.0",
-    "react-validate-form": "^1.0.6",
-    "react-validation": "^3.0.7",
-    "redux": "^3.7.2",
+    "react-tap-event-plugin": "^3.0.2",
+    "react-tap-to-reveal-options": "^0.2.1",
     "request": "^2.83.0"
   },
   "scripts": {
@@ -20,6 +27,6 @@
     "eject": "react-scripts eject"
   },
   "devDependencies": {
-    "react-devtools": "^3.0.0"
+    "react-bootstrap": "^0.32.1"
   }
 }
