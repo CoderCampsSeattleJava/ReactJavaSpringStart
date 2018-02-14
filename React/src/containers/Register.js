@@ -83,7 +83,6 @@ export default class Register extends React.Component {
     if (errors.length > 0) {
       this.setState({ errors });
       return;
-
     }
 
   }
