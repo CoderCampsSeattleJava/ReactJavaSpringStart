@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from "axios";
 import Register from './containers/Register';
-import Youtube from './containers/Youtube';
+import Videos from './containers/Videos';
 
  class App extends React.Component {
 
@@ -10,7 +10,7 @@ import Youtube from './containers/Youtube';
     return (
       <div>
         <Register />
-        <Youtube />
+        <Videos />
  
       </div>
     );

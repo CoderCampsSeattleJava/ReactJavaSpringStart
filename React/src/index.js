@@ -10,7 +10,7 @@ import VideoPlayer from './containers/VideoPlayer';
 import {  Dashboard } from './screens';
 import {  BrowserRouter as Router, Route } from 'react-router-dom';
 import HomePage from './screens/HomePage';
-import Youtube from './containers/Youtube';
+import Videos from './containers/Videos';
 
 
  
@@ -21,7 +21,7 @@ const Router1 = () => (
         <Route path="/Dashboard" component={Dashboard} />
         <Route path='/Register' component={Register}/>
         <Route path='/VideoPlayer' component={VideoPlayer}/>
-        <Route path='/Youtube' component={Youtube}/>
+        <Route path='/Videos' component={Videos}/>
         
         
     </div>
