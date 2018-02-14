@@ -115,7 +115,7 @@ export default class Register extends React.Component {
       <MuiThemeProvider >
         <Center>        
         <div>
-          <div style={{ fontWeight: "bold", color: "green", fontSize:"4" }}>Register Here!</div>
+          <div style={{ fontWeight: "bold", color: "#0F86AC", fontSize:"30" }}>Register Here!</div>
 
           <form onSubmit={this.handleSubmit}>
             {errors.map(error => (

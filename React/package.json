@@ -24,6 +24,7 @@
     "react-tap-event-plugin": "^3.0.2",
     "react-validate-form": "^1.0.6",
     "react-validation": "^3.0.7",
+    "react-youtube": "^7.5.0",
     "redux": "^3.7.2",
     "request": "^2.83.0",
     "video-react": "^0.9.4"
