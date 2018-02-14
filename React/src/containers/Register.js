@@ -79,7 +79,6 @@ export default class Register extends React.Component {
     if (errors.length > 0) {
       this.setState({ errors });
       return;
-
     }
 
   }
@@ -96,7 +95,6 @@ export default class Register extends React.Component {
   }
 
   render() {
-
     const { errors } = this.state;
     const { first_name, last_name, home_state, email, username, password, password_conf } = this.state;
     const isEnabled =
