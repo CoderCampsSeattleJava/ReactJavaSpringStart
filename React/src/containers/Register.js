@@ -3,14 +3,11 @@ import axios from 'axios';
 import ReactDOM from 'react-dom';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import TextField from 'material-ui/TextField';
-//import RaisedButton from 'material-ui/RaisedButton';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import { red700, blue700, grey700 } from 'material-ui/styles/colors';
 import Center from 'react-center';
-//import BackgroundImage from 'react-background-image-loader';
 import Dashboard from '../screens/Dashboard';
 //import ImageUploader from 'react-images-upload';
-//import Img from 'react-image';
 import backgroundtest from './images/backgroundtest.png';
 import Popup from 'react-popup';
 import Zoom from 'react-reveal/Zoom';
@@ -124,7 +121,7 @@ export default class Register extends React.Component {
         <Center>
           <div>
             <div style={{ fontWeight: "bold", color: "#0F86AC", fontSize: "x-large" }}>Register Here!
-            <Zoom><img src={backgroundtest} width={120} height={120} /></Zoom></div> 
+            <Zoom><img src={backgroundtest} width={150} height={150} /></Zoom></div>
 
             <form onSubmit={this.handleSubmit}>
               {errors.map(error => (
@@ -239,15 +236,11 @@ export default class Register extends React.Component {
               /> <br />
               {/* <ImageUploader imgExtension={['.jpg', '.gif', '.png', '.gif']}
               /> */}
-            <Zoom>  <Button bsStyle="primary" hover="Fill out form to ENABLE" disabled={!isEnabled} onClick={e => this.onSubmit(e)}>Register</Button> </Zoom>
+              <Zoom>  <button type="submit" disabled={!isEnabled} onClick={e => this.onSubmit(e)}>Register</button> </Zoom>
 
             </form>
 
           </div>
-          {/* <div class="checkbox">
-
-       <Label><Input type="checkbox"> Remember me</Input></Label>
-   </div> */}
         </Center>
       </MuiThemeProvider >
 
