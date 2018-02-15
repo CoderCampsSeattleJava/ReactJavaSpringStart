@@ -12,6 +12,7 @@ import Dashboard from '../screens/Dashboard';
 //import ImageUploader from 'react-images-upload';
 //import Img from 'react-image';
 import backgroundtest from './images/backgroundtest.png';
+import Popup from 'react-popup';
 
 function validate(first_name, last_name, home_state, email, username, password, password_conf) {
 
@@ -120,7 +121,7 @@ export default class Register extends React.Component {
 
       <MuiThemeProvider>
         <Center>
-                 <div>
+          <div>
             <div style={{ fontWeight: "bold", color: "#0F86AC", fontSize: "x-large" }}>Register Here!
             <img src={backgroundtest} width={120} height={120} /></div>
 
