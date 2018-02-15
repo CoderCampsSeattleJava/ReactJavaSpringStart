@@ -7,12 +7,11 @@ import RaisedButton from 'material-ui/RaisedButton';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import { red700, blue700, grey700 } from 'material-ui/styles/colors';
 import Center from 'react-center';
-import BackgroundImage from 'react-background-image-loader';
+//import BackgroundImage from 'react-background-image-loader';
 import Dashboard from '../screens/Dashboard';
-import './backgroundtest.png';
-import ImageUploader from 'react-images-upload';
-
-
+//import ImageUploader from 'react-images-upload';
+//import Img from 'react-image';
+import backgroundtest from './images/backgroundtest.png';
 
 function validate(first_name, last_name, home_state, email, username, password, password_conf) {
 
@@ -116,13 +115,14 @@ export default class Register extends React.Component {
       password == password_conf;
 
 
+
     return (
 
-      <MuiThemeProvider >
-
+      <MuiThemeProvider>
         <Center>
-          <div>
-            <div style={{ fontWeight: "bold", color: "#0F86AC", fontSize: "30" }}>Register Here!</div>
+                 <div>
+            <div style={{ fontWeight: "bold", color: "#0F86AC", fontSize: "x-large" }}>Register Here!
+            <img src={backgroundtest} width={120} height={120} /></div>
 
             <form onSubmit={this.handleSubmit}>
               {errors.map(error => (
@@ -235,8 +235,8 @@ export default class Register extends React.Component {
               //pattern="(?=.*\d)(?=.*[0-9]).{8,16}"
               //placeholder="Re-Enter your Password"
               /> <br />
-              <ImageUploader imgExtension={['.jpg', '.gif', '.png', '.gif']}
-              />
+              {/* <ImageUploader imgExtension={['.jpg', '.gif', '.png', '.gif']}
+              /> */}
               <button disabled={!isEnabled} onClick={e => this.onSubmit(e)}>Register</button>
 
             </form>
