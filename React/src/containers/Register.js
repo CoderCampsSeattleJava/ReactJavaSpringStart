@@ -10,6 +10,8 @@ import Center from 'react-center';
 import BackgroundImage from 'react-background-image-loader';
 import Dashboard from '../screens/Dashboard';
 import './backgroundtest.png';
+import ImageUploader from 'react-images-upload';
+
 
 
 function validate(first_name, last_name, home_state, email, username, password, password_conf) {
@@ -114,12 +116,10 @@ export default class Register extends React.Component {
       password == password_conf;
 
 
-    // const localImage = './backgroundtest.png';
-    // <BackgroundImage src={localImage}></BackgroundImage>
-
     return (
 
       <MuiThemeProvider >
+
         <Center>
           <div>
             <div style={{ fontWeight: "bold", color: "#0F86AC", fontSize: "30" }}>Register Here!</div>
@@ -235,7 +235,8 @@ export default class Register extends React.Component {
               //pattern="(?=.*\d)(?=.*[0-9]).{8,16}"
               //placeholder="Re-Enter your Password"
               /> <br />
-
+              <ImageUploader imgExtension={['.jpg', '.gif', '.png', '.gif']}
+              />
               <button disabled={!isEnabled} onClick={e => this.onSubmit(e)}>Register</button>
 
             </form>
