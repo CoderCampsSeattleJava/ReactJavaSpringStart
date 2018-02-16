@@ -13,6 +13,7 @@ import linkedinicon from './images/linkedinicon.png';
 import instagramicon from './images/instagramicon.png';
 import youtubeicon from './images/youtubeicon.png';
 
+
 class Videos extends Component {
     constructor() {
         super();
@@ -30,11 +31,10 @@ class Videos extends Component {
                
                 <a href='https://www.facebook.com'>< img type="image" title="facebook.com" src={facebookicon} width={30} height={30} align='right'/></a>
                 <a href='https://www.instagram.com/'>< img type="image" title="instagram" src={instagramicon} width={30} height={30} align='right'/></a>
-                <a href='https://www.linkedin.com/'>< img type="image" tite='linkeIn' src={linkedinicon} width={30} height={30} align='right'/></a>
+                <a href='https://www.linkedin.com/'>< img type="image" title='linkeIn' src={linkedinicon} width={30} height={30} align='right'/></a>
                 <a href='https://www.indeed.com/'>< img type="image" title='indeed'src={indeedicon} width={30} height={30} align='right'/></a>
                 <a href='https://www.youtube.com/'>< img type="image" title='YouTube.com' src={youtubeicon} width={30} height={30} align='right'/></a>
-
-
+            
                 <div style={{ backgroundColor: '#CCDECF' }}>
                     <Center><h2>Coder Dudes - Featured Videos</h2></Center></div>
 
