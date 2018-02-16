@@ -53,9 +53,15 @@ class Videos extends Component {
 
                 <Center>  <Roll><h3>Final Project of the Month</h3></Roll></Center>
                 <Center>    <Zoom> <iframe width="560" height="315" src="https://www.youtube.com/embed/X_iQ5rgTadA"
-                    frameBorder="50" allow="autoplay; encrypted-media" allowfullscreen></iframe><br /></Zoom>
+                    frameBorder="50" allow="autoplay; encrypted-media" allowFullScreen></iframe><br /></Zoom>
+                </Center>
+                <Center>
+                    <div>
+                        <h6>Thank you for visiting our website!</h6>
+                    </div>
                 </Center>
 
+                <Button id='backtodash' bsStyle="primary" onClick={this.handleClick}>Back to Dashboard</Button>
             </ResponsiveContainer>
         );
     }

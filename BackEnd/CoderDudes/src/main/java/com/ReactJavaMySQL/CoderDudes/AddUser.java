@@ -1,0 +1,38 @@
+//package com.ReactJavaMySQL.CoderDudes;
+//
+//	import org.springframework.beans.factory.annotation.Autowired;
+//	import org.springframework.stereotype.Controller;
+//	import org.springframework.web.bind.annotation.CrossOrigin;
+//	import org.springframework.web.bind.annotation.PostMapping;
+//	import org.springframework.web.bind.annotation.RequestMapping;
+//	import org.springframework.web.bind.annotation.RequestParam;
+//	import org.springframework.web.bind.annotation.ResponseBody;
+//
+//	
+//	//@CrossOrigin(origins = "http://localhost:3000")
+//	@Controller
+//	@RequestMapping(path="/api")
+//
+//	public interface AddUser extends MainController {
+//		@Autowired
+//			
+//		@PostMapping(path="/post")
+//		public @ResponseBody String postNewUser (@RequestParam  String first_name, @RequestParam String last_name, @RequestParam String email, @RequestParam String home_state, 
+//				@RequestParam String username, @RequestParam String password, @RequestParam String password_conf) {
+//			
+//			User n = new User();
+//			n.setFirst_Name(first_name);
+//			n.setLast_Name(last_name);
+//			n.setHome_State(home_state);
+//			n.setEmail(email);
+//			n.setUsername(username);
+//			n.setPassword(password);
+//			n.setPassword_Conf(password_conf);
+//			Object userRepository;
+//			userRepository.save(n);
+//			return "Saved in DB 'POST'";
+//		}
+//
+//	}
+
+}
