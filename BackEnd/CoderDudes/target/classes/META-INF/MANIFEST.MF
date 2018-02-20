@@ -1,0 +1,19 @@
+Manifest-Version: 1.0
+<<<<<<< HEAD:Java/target/classes/META-INF/MANIFEST.MF
+Built-By: walje
+Build-Jdk: 9.0.4
+Implementation-Title: Startup
+=======
+Implementation-Title: CoderDudes
+>>>>>>> master:BackEnd/CoderDudes/target/classes/META-INF/MANIFEST.MF
+Implementation-Version: 0.0.1-SNAPSHOT
+Implementation-Vendor-Id: com.ReactJavaMySQL
+<<<<<<< HEAD:Java/target/classes/META-INF/MANIFEST.MF
+Implementation-Vendor: Pivotal Software, Inc.
+Implementation-URL: http://projects.spring.io/spring-boot/Startup/
+=======
+Build-Jdk: 1.8.0_151
+Implementation-URL: http://projects.spring.io/spring-boot/CoderDudes/
+>>>>>>> master:BackEnd/CoderDudes/target/classes/META-INF/MANIFEST.MF
+Created-By: Maven Integration for Eclipse
+
