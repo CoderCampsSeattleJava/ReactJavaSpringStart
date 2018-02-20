@@ -2,10 +2,15 @@ import React from 'react';
 import axios from 'axios';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import TextField from 'material-ui/TextField';
+import injectTapEventPlugin from 'react-tap-event-plugin';
+import { red700, blue700, grey700 } from 'material-ui/styles/colors';
 import Center from 'react-center';
-
-
-
+import Dashboard from '../screens/Dashboard';
+//import ImageUploader from 'react-images-upload';
+import backgroundtest from './images/backgroundtest.png';
+import Popup from 'react-popup';
+import Zoom from 'react-reveal/Zoom';
+import { Button } from 'react-bootstrap';
 
 function validate(first_name, last_name, home_state, email, username, password, password_conf) {
 
@@ -109,15 +114,13 @@ export default class Register extends React.Component {
       password === password_conf;
 
 
-    // const localImage = './backgroundtest.png';
-    // <BackgroundImage src={localImage}></BackgroundImage>
-
     return (
 
-      <MuiThemeProvider >
+      <MuiThemeProvider>
         <Center>
           <div>
-            <div style={{ fontWeight: "bold", color: "#0F86AC", fontSize: "30" }}>Register Here!</div>
+            <div style={{ fontWeight: "bold", color: "#0F86AC", fontSize: "x-large" }}>Register Here!
+            <Zoom><img src={backgroundtest} width={150} height={150} /></Zoom></div>
 
             <form onSubmit={this.handleSubmit}>
               {errors.map(error => (
@@ -230,16 +233,13 @@ export default class Register extends React.Component {
               //pattern="(?=.*\d)(?=.*[0-9]).{8,16}"
               //placeholder="Re-Enter your Password"
               /> <br />
-
-              <button disabled={!isEnabled} onClick={e => this.onSubmit(e)}>Register</button>
+              {/* <ImageUploader imgExtension={['.jpg', '.gif', '.png', '.gif']}
+              /> */}
+              <Zoom>  <button type="submit" disabled={!isEnabled} onClick={e => this.onSubmit(e)}>Register</button> </Zoom>
 
             </form>
 
           </div>
-          {/* <div class="checkbox">
-
-       <Label><Input type="checkbox"> Remember me</Input></Label>
-   </div> */}
         </Center>
       </MuiThemeProvider>
 

@@ -1,5 +1,22 @@
-body { background-color: blue }
+navbar { background-color: dodgerblue}
 
 h3 { font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   color: blue;
+  display: block;
+  margin-right: 15;
  }
+
+ h2 { color:black;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+
+ }
+
+ h6{ padding: 1cm 2cm 1cm 2cm;
+  color: blue;
+
+ }
+
+ #backtodash{
+  
+ }
+
