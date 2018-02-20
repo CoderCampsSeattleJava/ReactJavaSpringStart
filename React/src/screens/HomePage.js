@@ -1,32 +1,25 @@
 import React, { Component } from 'react';
-import { Navbar, Nav, NavItem } from "react-bootstrap";
+import { Navbar, NavbarBrand, Nav, NavItem } from "react-bootstrap";
 
-const Navbar1 = (props) => {
+
+
+
+const Navbar1 = () => {
     return (
         <Navbar>
-            <Navbar.Header> 
-                <Nav>
-                    <NavItem eventKey={4} href="/HomePage">
-                        Coder Dudes
-            </NavItem>
-                </Nav>
-                <Navbar.Toggle />
+            <Navbar.Header>
+                <NavbarBrand>
+                    <a href="#Home">Coder Dudes</a>
+                </NavbarBrand>
             </Navbar.Header>
-            <Navbar.Collapse>
-                <Nav>
-                    <NavItem eventKey={1} href="/Dashboard">
-                        Dashboard
-        </NavItem>
+            <Nav pullRight>
+                    <NavItem eventKey={1} href="#">
+                        Link Right
+      </NavItem>
+                    <NavItem eventKey={2} href="#">
+                        Link Right
+      </NavItem>
                 </Nav>
-                <Nav pullRight>
-                    <NavItem eventKey={2} href="#Login">
-                        Login
-        </NavItem>
-                    <NavItem eventKey={3} href="/Register">
-                        Register
-        </NavItem>
-                </Nav>
-            </Navbar.Collapse>
         </Navbar>
     );
 }

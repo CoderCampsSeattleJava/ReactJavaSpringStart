@@ -1,15 +1,10 @@
 import React from 'react';
 import axios from 'axios';
-import ReactDOM from 'react-dom';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import TextField from 'material-ui/TextField';
-import RaisedButton from 'material-ui/RaisedButton';
-import injectTapEventPlugin from 'react-tap-event-plugin';
-import { red700, blue700, grey700 } from 'material-ui/styles/colors';
 import Center from 'react-center';
-import BackgroundImage from 'react-background-image-loader';
-import Dashboard from '../screens/Dashboard';
-import './backgroundtest.png';
+
+
 
 
 function validate(first_name, last_name, home_state, email, username, password, password_conf) {
@@ -111,7 +106,7 @@ export default class Register extends React.Component {
       username.length > 7 &&
       password.length > 7 &&
       password_conf.length > 7 &&
-      password == password_conf;
+      password === password_conf;
 
 
     // const localImage = './backgroundtest.png';
@@ -246,7 +241,7 @@ export default class Register extends React.Component {
        <Label><Input type="checkbox"> Remember me</Input></Label>
    </div> */}
         </Center>
-      </MuiThemeProvider >
+      </MuiThemeProvider>
 
     );
   }

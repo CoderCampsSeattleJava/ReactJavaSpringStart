@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ResponsiveContainer from 'react-responsive-widget';
-import Dashboard from '../screens/Dashboard';
+
 
 
 
@@ -26,15 +26,15 @@ class Videos extends Component {
                     </div>
 
                     <h3>Coder's School of the Month</h3>
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/V4w5R7_80G0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                    <iframe title="Coder's School of the Month" width="560" height="315" src="https://www.youtube.com/embed/V4w5R7_80G0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
                     <button onClick={this.handleClick}>Back to Dashboard</button>
 
                     <h3>A day at Coder Camp</h3>
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/bb6Gqa_hXV8" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                    <iframe title="A day at Coder Camp" width="560" height="315" src="https://www.youtube.com/embed/bb6Gqa_hXV8" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
                     <button onClick={this.handleClick}>Back to Dashboard</button>
 
                     <h3>Final Project of the Month</h3>
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/X_iQ5rgTadA" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                    <iframe title="Final Project of the Month" width="560" height="315" src="https://www.youtube.com/embed/X_iQ5rgTadA" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
                     <button onClick={this.handleClick}>Back to Dashboard</button>
 
                 </div>
