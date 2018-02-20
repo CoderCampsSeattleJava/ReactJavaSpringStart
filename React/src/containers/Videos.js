@@ -13,7 +13,6 @@ import linkedinicon from './images/linkedinicon.png';
 import instagramicon from './images/instagramicon.png';
 import youtubeicon from './images/youtubeicon.png';
 
-
 class Videos extends Component {
     constructor() {
         super();
@@ -23,7 +22,6 @@ class Videos extends Component {
     handleClick(e) {
         e.preventDefault();
         this.props.history.push('./Dashboard');
-
     }
     render() {
         return (
