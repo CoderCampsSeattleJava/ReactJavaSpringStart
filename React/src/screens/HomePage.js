@@ -1,13 +1,19 @@
 import React, { Component } from 'react';
-import { Navbar, Nav, NavItem } from "react-bootstrap";
+import { Navbar, Nav, NavItem, NavbarHeader, NavbarToggle } from "react-bootstrap";
+// import logo from '../images/logo.jpg';
+
 
 const Navbar1 = (props) => {
     return (
-        <Navbar>
+        <div>
+        <Navbar inverse> 
+        <a href="#"><h1>Code Lovers</h1></a>
             <Navbar.Header> 
+               
                 <Nav>
                     <NavItem eventKey={4} href="/HomePage">
                         Coder Dudes
+                        
             </NavItem>
                 </Nav>
                 <Navbar.Toggle />
@@ -28,6 +34,7 @@ const Navbar1 = (props) => {
                 </Nav>
             </Navbar.Collapse>
         </Navbar>
+        </div>
     );
 }
 
@@ -36,6 +43,8 @@ class HomePage extends Component {
         return (
             <div>
                 <Navbar1 />
+                {/* <img src={logo} width={600} height={550} /> */}
+                <a href="#"><h1>Code Lovers</h1></a>
             </div>
         );
     }
