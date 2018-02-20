@@ -2,15 +2,11 @@ import React from 'react';
 import axios from 'axios';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import TextField from 'material-ui/TextField';
-import injectTapEventPlugin from 'react-tap-event-plugin';
-import { red700, blue700, grey700 } from 'material-ui/styles/colors';
 import Center from 'react-center';
-import Dashboard from '../screens/Dashboard';
 //import ImageUploader from 'react-images-upload';
 import backgroundtest from './images/backgroundtest.png';
-import Popup from 'react-popup';
 import Zoom from 'react-reveal/Zoom';
-import { Button } from 'react-bootstrap';
+
 
 function validate(first_name, last_name, home_state, email, username, password, password_conf) {
 
