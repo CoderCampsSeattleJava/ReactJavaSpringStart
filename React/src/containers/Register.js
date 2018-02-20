@@ -1,6 +1,5 @@
 import React from 'react';
 import axios from 'axios';
-import ReactDOM from 'react-dom';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import TextField from 'material-ui/TextField';
 import injectTapEventPlugin from 'react-tap-event-plugin';
@@ -112,7 +111,7 @@ export default class Register extends React.Component {
       username.length > 7 &&
       password.length > 7 &&
       password_conf.length > 7 &&
-      password == password_conf;
+      password === password_conf;
 
 
     return (
@@ -242,7 +241,7 @@ export default class Register extends React.Component {
 
           </div>
         </Center>
-      </MuiThemeProvider >
+      </MuiThemeProvider>
 
     );
   }

@@ -3,7 +3,10 @@ import { Navbar, Nav, NavItem, NavbarHeader, NavbarToggle } from "react-bootstra
 // import logo from '../images/logo.jpg';
 
 
-const Navbar1 = (props) => {
+
+
+
+const Navbar1 = () => {
     return (
         <div>
         <Navbar inverse> 
@@ -18,21 +21,14 @@ const Navbar1 = (props) => {
                 </Nav>
                 <Navbar.Toggle />
             </Navbar.Header>
-            <Navbar.Collapse>
-                <Nav>
-                    <NavItem eventKey={1} href="/Dashboard">
-                        Dashboard
-        </NavItem>
+            <Nav pullRight>
+                    <NavItem eventKey={1} href="#">
+                        Link Right
+      </NavItem>
+                    <NavItem eventKey={2} href="#">
+                        Link Right
+      </NavItem>
                 </Nav>
-                <Nav pullRight>
-                    <NavItem eventKey={2} href="#Login">
-                        Login
-        </NavItem>
-                    <NavItem eventKey={3} href="/Register">
-                        Register
-        </NavItem>
-                </Nav>
-            </Navbar.Collapse>
         </Navbar>
         </div>
     );
