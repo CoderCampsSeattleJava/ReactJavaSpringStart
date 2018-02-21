@@ -2,30 +2,30 @@ import React, { Component } from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
-import Center from 'react-center';
 
 
+import  axios from 'axios';
 
+const username = ' ';
+const password = ' ';
 
 const TextInputs = ( props ) => (
     <MuiThemeProvider>
-         <Center>
+      
             <div>
             <TextField 
-                onChange={( event, newValue ) => 
-                this.setState({ username: newValue })}
+                onChange={this.handleChang}
                 hintText='Enter your Username'
                 floatingLabelText='Username' /><br />
 
              <TextField
-                onChange={( event, newValue ) =>
-                this.setState({ password: newValue })}
+                onChange={this.handleChang}
                 hintText='Enter your Password' 
                 floatingLabelText='Password' /><br />
 
-            <RaisedButton label='Login' onClick={( event ) => this.handleClick( event )} />
+            <RaisedButton label='Login' onClick={this.handleClick}/>
             </div>    
-        </Center>
+   
     </MuiThemeProvider>
 );
 
@@ -39,26 +39,29 @@ class LoginPage extends Component {
         super(props);
 
         this.state = {
-           username: ' ',
-           password: ' '
+           Value: username, password,
         };
+    }
+
+    handleChange = ( event ) => {
+        this.setState({ Value: event.target.value });
     }
 
     handleClick( event ) {
         let apiBaseUrl = "http://localhost:8080/api/";
         let self = this;
         let payload={
-            email: this.state.username,
+            username: this.state.username,
             password: this.state.password
         };
 
         axios.post( apiBaseUrl + 'Login', payload )
-        .then( (Response) => { console.log( response );
+        .then( (response) => { console.log( response );
         
             if ( Response.data.code === 200 ) {
                 console.log( 'Login Successfull' );
                 let uploadScreen=[];
-                uploadScreen.push(<UploadScreen appContext={ self.props.appContext} />)
+                uploadScreen.push(<uploadScreen appContext={ self.props.appContext} />)
                 self.props.appContext.setState({ LoginPage: [], uploadScreen: uploadScreen})
             
             } else if ( Response.data.code === 204 ) {
@@ -71,9 +74,9 @@ class LoginPage extends Component {
             }})
 
             .catch( (error) => {
-
-            })
-    }
+                console.log( error );
+            });
+    };
 
     render() {
         return (
