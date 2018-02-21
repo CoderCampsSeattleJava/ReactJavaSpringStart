@@ -1,9 +1,5 @@
 import React, { Component } from 'react';
-import { Navbar, Nav, NavItem, NavbarHeader, NavbarToggle } from "react-bootstrap";
-// import logo from '../images/logo.jpg';
-
-
-
+import { Navbar, Nav, NavItem } from "react-bootstrap";
 
 
 const Navbar1 = () => {
