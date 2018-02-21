@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './styles.css';
-import { HomePage, Dashboard, Register, Videos, LoginPage } from './screens';
+import { HomePage, Dashboard, Register, Videos } from './screens';
 import {  BrowserRouter as Router, Route } from 'react-router-dom';
-
+import LoginPage from './screens/login/LoginPage';
 
 
 
