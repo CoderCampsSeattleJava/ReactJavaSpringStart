@@ -5,6 +5,7 @@ import TextField from 'material-ui/TextField';
 import Center from 'react-center';
 import backgroundtest from './images/backgroundtest.png';
 import Zoom from 'react-reveal/Zoom';
+import Courses from './Courses';
 
 function validate(first_name, last_name, home_state, email, username, password, password_conf) {
 
@@ -34,13 +35,6 @@ function validate(first_name, last_name, home_state, email, username, password, 
   if (email.indexOf('.') === -1) {
     errors.push("Email should contain at least one dot");
   }
-  // if (password.length, password_conf.length < 8) {
-  //   errors.push("Password should be at least 8 characters long");
-  // }
-
-  // if (password.length < 8 != password_conf.length < 8) {
-  //   errors.push("Passwords should match");
-  // }
 
   return errors;
 }
@@ -67,7 +61,7 @@ export default class Register extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.history.push('./Dashboard');
+    this.props.history.push('./Courses');
 
 
     const { first_name, last_name, home_state, email, username, password, password_conf } = this.state;
@@ -228,7 +222,7 @@ export default class Register extends React.Component {
               /> <br />
               {/* <ImageUploader imgExtension={['.jpg', '.gif', '.png', '.gif']}
               /> */}
-              <Zoom>  <button type="submit" disabled={!isEnabled} onClick={e => this.onSubmit(e)}>Register</button> </Zoom>
+              <Zoom>  <button type="submit" disabled={!isEnabled} onClick={e => this.onSubmit(e)}>Register and Select Courses</button> </Zoom>
 
             </form>
 

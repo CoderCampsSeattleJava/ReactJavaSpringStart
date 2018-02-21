@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './styles.css';
-import { HomePage, Dashboard, Register, Videos, Plans } from './screens';
+import { HomePage, Dashboard, Register, Videos, Courses } from './screens';
 import {  BrowserRouter as Router, Route } from 'react-router-dom';
 
 
@@ -13,7 +13,7 @@ const Router1 = () => (
        <Route path="/Dashboard" component={Dashboard} />
        <Route path="/Register" component={Register}/>
        <Route path='/Videos' component={Videos}/>
-       <Route path='/Plans' component={Plans}/>
+       <Route path='/Courses' component={Courses}/>
           </div>
    </Router>
 );
