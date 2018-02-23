@@ -33,8 +33,7 @@ public class MainController {
 		userRepository.save(n);
 		return "Saved in DB 'POST'";
 	}
-	
-	
+		
 	@GetMapping(path="/add")
 	public @ResponseBody String addNewUser (@RequestParam  String first_name, @RequestParam String last_name, @RequestParam String email, @RequestParam String home_state, 
 			@RequestParam String username, @RequestParam String password, @RequestParam String password_conf) {
