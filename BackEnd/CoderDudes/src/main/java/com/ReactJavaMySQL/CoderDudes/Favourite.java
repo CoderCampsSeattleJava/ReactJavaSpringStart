@@ -1,39 +1,72 @@
 package com.ReactJavaMySQL.CoderDudes;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Access;
 import javax.persistence.AccessType;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
-@Entity
-@Table(name = "Favourites")
-@Access(value=AccessType.FIELD)
+import lombok.Data;
+
+import javax.persistence.JoinColumn;
+
+
+@Entity(name = "Favourites")
+@Table(name = "favourites")
+//@Access(value=AccessType.FIELD)
+
 public class Favourite implements FavouritesRepository, Serializable{
 	
-	private static final long serialVersionUID = 1L;
-	@Id
-	@Column (name="username", insertable = false, updatable = false)
-	private long _username;
 	
-	@Transient
-	public long get_Username() {return _username;}
-	public void set_Username(long id) {_username = id;}
+	/**
+	 * 
+	 */
+		
+	private static final long serialVersionUID = 6412586796844594649L;
 	
-	@Id
-	@Column (name="course_id", insertable = false, updatable = false)
+	@Id 
+	@GeneratedValue
+	private long id;
+		
+	@ManyToMany(cascade = { 
+	        CascadeType.PERSIST, 
+	        CascadeType.MERGE
+	})
+	
+	@JoinTable(
+			name="FAV_COURSES",
+			joinColumns=@JoinColumn(name="USER_ID", referencedColumnName="ID"),
+			inverseJoinColumns=@JoinColumn(name="FAV_USER_COURSE", referencedColumnName="COURSE_ID")
+			)
+		
+	private List<Favourite> favs;
+	
+	
+	
+	@Column (name="id", insertable=false, updatable=false)
+	private long _id;
+	
+	public long get_Id() {return _id;}
+	public void set_Id(long id) {_id = id;}
+	
+	
+	@Column (name="course_id", insertable=false, updatable=false)
 	private long _course_id;
 	
-	@Transient
 	public long get_Course_id() {return _course_id;}	
 	public void set_Course_id(long id) {_course_id = id;}
 	
+
 	
-		
 	@Override
 	public long count() {
 		// TODO Auto-generated method stub

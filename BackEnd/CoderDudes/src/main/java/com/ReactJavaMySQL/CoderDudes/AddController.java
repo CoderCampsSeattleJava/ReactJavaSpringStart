@@ -19,7 +19,7 @@ public class AddController {
 	private CourseRepository courseRepository;
 	
 	@PostMapping(path="/favcourses")
-	public @ResponseBody String postCourses (@RequestParam  String course_name, @RequestParam String course_id) {
+	public @ResponseBody String postCourses (@RequestParam  String course_name, @RequestParam long course_id) {
 		
 		Courses n = new Courses();
 		n.setCourse_name(course_name);
