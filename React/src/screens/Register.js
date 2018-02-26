@@ -238,7 +238,7 @@ export default class Register extends React.Component {
               /> <br />
               {/* <ImageUploader imgExtension={['.jpg', '.gif', '.png', '.gif']}
               /> */}
-              <Zoom>  <button type="submit" disabled={!isEnabled} onClick={e => this.onSubmit(e)}>Register and Select Courses</button> </Zoom>
+              <Zoom>  <button type="submit" disabled={!isEnabled} onClick={e => this.onSubmit(e)}>Register</button> </Zoom>
 
             </form>
 

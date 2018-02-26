@@ -21,9 +21,10 @@ class Videos extends Component {
             course_id: '',
         };
 
-        this.handleClick1 = this.handleClick.bind(this);
+        this.handleClick = this.handleClick.bind(this);
         this.handleSubmit1 = this.handleSubmit1.bind(this);
         this.handleSubmit2 = this.handleSubmit2.bind(this);
+        this.handleSubmit3 = this.handleSubmit3.bind(this);
     }
 
     handleClick(e) {
@@ -39,6 +40,11 @@ class Videos extends Component {
     handleSubmit2(e) {
         // e.preventDefault();
         console.log("Added to Fav 2");
+    }
+
+    handleSubmit3(e) {
+        // e.preventDefault();
+        console.log("Added to Fav 3");
     }
 
     onSubmit = (e) => {
@@ -68,24 +74,30 @@ class Videos extends Component {
                 <Center> <Roll><h3>Coder's School of the Month</h3></Roll> </Center>
                 <Center>   <Wobble><iframe title="CoderSchoolOfTheMonth" width="560" height="315" src="https://www.youtube.com/embed/V4w5R7_80G0"
                     frameBorder="50" allow="autoplay; encrypted-media" allowFullScreen></iframe><br /></Wobble></Center>
+
                 <select value={this.state.course_id} onChange={this.handleSubmit1}>
-                    <option value="111">Add to Favorites</option></select>
+                    <option value="N/A">Open Menu</option>
+                    <option value="000">Add to Favorites</option>
+                    <option value="000">LIKE video</option></select>
+
 
                 <Center>   <Roll left><h3>A day at Coder Camp</h3></Roll></Center>
                 <Center> <Wobble><iframe title="ADayatCoderCamp" width="560" height="315" src="https://www.youtube.com/embed/bb6Gqa_hXV8"
                     frameBorder="50" allow="autoplay; encrypted-media" allowFullScreen></iframe><br /></Wobble> </Center>
 
                 <select value={this.state.course_id} onChange={this.handleSubmit2}>
-                    <option value="444">Add to Favorites</option></select>
-
-
+                    <option value="N/A">Open Menu</option>
+                    <option value="000">Add to Favorites</option>
+                    <option value="000">LIKE video</option></select>
 
                 <Center>  <Roll><h3>Final Project of the Month</h3></Roll></Center>
                 <Center>    <Wobble> <iframe title="FInalProjectofTheMonth" width="560" height="315" src="https://www.youtube.com/embed/X_iQ5rgTadA"
                     frameBorder="50" allow="autoplay; encrypted-media" allowFullScreen></iframe><br /></Wobble></Center>
-                    
+
                 <select value={this.state.course_name} onChange={this.handleSubmit3}>
-                    <option value="888">Add to Favorites</option></select>
+                    <option value="N/A">Open Menu</option>
+                    <option value="000">Add to Favorites</option>
+                    <option value="000">LIKE video</option></select>
 
                 <Center>
                     <div>
