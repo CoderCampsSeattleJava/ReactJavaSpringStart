@@ -1,6 +1,7 @@
 package com.ReactJavaMySQL.CoderDudes;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Access;
@@ -9,6 +10,7 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
@@ -19,9 +21,10 @@ import lombok.Data;
 
 import javax.persistence.JoinColumn;
 
-
-@Entity(name = "Favourites")
-@Table(name = "favourites")
+@Data
+@Entity
+//(name = "favourites")
+//@Table(name = "favourites")
 //@Access(value=AccessType.FIELD)
 
 public class Favourite implements FavouritesRepository, Serializable{
@@ -34,36 +37,35 @@ public class Favourite implements FavouritesRepository, Serializable{
 	private static final long serialVersionUID = 6412586796844594649L;
 	
 	@Id 
-	@GeneratedValue
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long id;
-		
+	
+	
 	@ManyToMany(cascade = { 
-	        CascadeType.PERSIST, 
-	        CascadeType.MERGE
+	        CascadeType.ALL
 	})
 	
 	@JoinTable(
-			name="FAV_COURSES",
-			joinColumns=@JoinColumn(name="USER_ID", referencedColumnName="ID"),
-			inverseJoinColumns=@JoinColumn(name="FAV_USER_COURSE", referencedColumnName="COURSE_ID")
+			joinColumns=@JoinColumn(name="USER_ID"),
+			inverseJoinColumns=@JoinColumn(name="COURSE_ID")
 			)
 		
-	private List<Favourite> favs;
+	private List<Favourite> favs = new ArrayList<>();
 	
 	
 	
-	@Column (name="id", insertable=false, updatable=false)
-	private long _id;
+//	@Column (name="user_id", insertable=false, updatable=false)
+	private long user_id = -1;
 	
-	public long get_Id() {return _id;}
-	public void set_Id(long id) {_id = id;}
+	public long getUser_Id() {return user_id;}
+	public void set_Id(long user_id) {this.user_id = user_id;}
 	
+//	
+//	@Column (name="course_id", insertable=false, updatable=false)
+	private String course_id = "";
 	
-	@Column (name="course_id", insertable=false, updatable=false)
-	private long _course_id;
-	
-	public long get_Course_id() {return _course_id;}	
-	public void set_Course_id(long id) {_course_id = id;}
+	public String get_Course_id() {return course_id;}	
+	public void set_Course_id(String course_id) {this.course_id = course_id;}
 	
 
 	
@@ -121,6 +123,14 @@ public class Favourite implements FavouritesRepository, Serializable{
 	public <S extends Favourite> Iterable<S> save(Iterable<S> arg0) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+	public void setUserId(long course_id2) {
+		// TODO Auto-generated method stub
+		
+	}
+	public void setCourseId(String course_id2) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 

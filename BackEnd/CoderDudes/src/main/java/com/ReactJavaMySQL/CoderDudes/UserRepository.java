@@ -4,7 +4,12 @@ import org.springframework.data.repository.CrudRepository;
 
 public interface UserRepository extends CrudRepository<User, Long> {
 
-	User findById(long l);
+	User findById(String string);
+
+	static Object findAll(String string) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 
 }

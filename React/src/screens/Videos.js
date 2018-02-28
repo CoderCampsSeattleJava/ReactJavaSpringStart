@@ -81,7 +81,7 @@ class Videos extends Component {
                     <option value="000">LIKE video</option></select>
 
 
-                <Center>   <Roll left><h3>A day at Coder Camp</h3></Roll></Center>
+                <Center>   <Roll left><h3>A day at Coder Camps</h3></Roll></Center>
                 <Center> <Wobble><iframe title="ADayatCoderCamp" width="560" height="315" src="https://www.youtube.com/embed/bb6Gqa_hXV8"
                     frameBorder="50" allow="autoplay; encrypted-media" allowFullScreen></iframe><br /></Wobble> </Center>
 

@@ -3,7 +3,9 @@ package com.ReactJavaMySQL.CoderDudes;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -19,7 +21,7 @@ public class AddController {
 	private CourseRepository courseRepository;
 	
 	@PostMapping(path="/favcourses")
-	public @ResponseBody String postCourses (@RequestParam  String course_name, @RequestParam long course_id) {
+	public @ResponseBody String postCourses (@RequestParam  String course_name, @RequestParam String course_id) {
 		
 		Courses n = new Courses();
 		n.setCourse_name(course_name);
@@ -39,10 +41,14 @@ public class AddController {
 		return courseRepository.findAll();
 	}
 	
+//	@DeleteMapping("/deletecourse/{id}")
+//	public void deleteCourse(@PathVariable long id) {
+//		Courses courses = session.deleteById(id);
+//	}
 	
 	@RequestMapping(value = "/")
 	public String index() {
 		return "index";
 	}
-	
+		
 }
