@@ -1,18 +1,24 @@
 package com.ReactJavaMySQL.CoderDudes;
 
+import java.util.List;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
+
 
 import lombok.Data;
 
 @Data
 @Entity
+@Table(name="user")
 public class User {
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 	private String first_name;
 	private String last_name;
@@ -21,7 +27,7 @@ public class User {
 	private String username;
 	private String password;
 	private String password_conf;
-	
+
 	public User() {
 		this.id = -1;
 		this.first_name = "";
@@ -32,8 +38,9 @@ public class User {
 		this.password = "";
 		this.password_conf = "";
 	}
-	
-	public User(long id, String first_name, String last_name, String email, String home_state, String username, String password, String password_conf) {
+
+	public User(long id, String first_name, String last_name, String email, String home_state, String username,
+			String password, String password_conf) {
 		this.id = id;
 		this.first_name = first_name;
 		this.last_name = last_name;
@@ -43,7 +50,12 @@ public class User {
 		this.password = password;
 		this.password_conf = password_conf;
 	}
-	
+
+	@Column(name = "USER_ID")
+	public String getUserId() {
+		return username;
+	}
+
 	public long getId() {
 		return id;
 	}
@@ -104,5 +116,9 @@ public class User {
 		this.password_conf = password_conf;
 	}
 
-	
+	public List<User> getUsers() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Built-By: walje
+Build-Jdk: 9.0.4
+Implementation-Title: Startup
+Implementation-Version: 0.0.1-SNAPSHOT
+Implementation-Vendor-Id: com.ReactJavaMySQL
+Implementation-Vendor: Pivotal Software, Inc.
+Implementation-URL: http://projects.spring.io/spring-boot/Startup/
+Created-By: Maven Integration for Eclipse
+
