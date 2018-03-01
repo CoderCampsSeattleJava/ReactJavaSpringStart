@@ -5,7 +5,165 @@
   <link rel="self" href="https://spring.io/blog.atom" />
   <id>http://spring.io/blog.atom</id>
   <icon>https://spring.io/favicon.ico</icon>
-  <updated>2018-03-01T14:43:55Z</updated>
+  <updated>2018-03-01T19:23:10Z</updated>
+  <entry>
+    <title>Spring Security SAML and this week's SAML Vulnerability</title>
+    <link rel="alternate" href="https://spring.io/blog/2018/03/01/spring-security-saml-and-this-week-s-saml-vulnerability" />
+    <category term="engineering" label="Engineering" />
+    <author>
+      <name>Rob Winch</name>
+    </author>
+    <id>tag:spring.io,2018-02-28:3194</id>
+    <updated>2018-03-01T19:23:10Z</updated>
+    <content type="html">&lt;div class="paragraph"&gt;
+&lt;p&gt;This week, the software world found out that &lt;a href="https://duo.com/blog/duo-finds-saml-vulnerabilities-affecting-multiple-implementations"&gt;SAML Vulnerabilities Affecting Multiple Implementations&lt;/a&gt; were discovered. If you use Spring Security SAML&amp;#8217;s defaults, you are not impacted by this vulnerability.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;The underlying implementation that Spring Security SAML uses is Shibboleth&amp;#8217;s OpenSAML Java library. The OpenSAML Java implementation was not listed in the libraries that contain the vulnerability (Shibboleth openSAML C++ was vulnerable). However, if the &lt;code&gt;ParserPool&lt;/code&gt; &lt;a href="https://github.com/spring-projects/spring-security-saml/issues/228"&gt;has been customized&lt;/a&gt;, you may be impacted.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="sect1"&gt;
+&lt;h2 id="not-safe-configurations"&gt;&lt;a class="anchor" href="#not-safe-configurations"&gt;&lt;/a&gt;NOT Safe Configurations&lt;/h2&gt;
+&lt;div class="sectionbody"&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Specifically, if the application explicitly sets the &lt;code&gt;BasicParserPool&lt;/code&gt; or the &lt;code&gt;StaticBasicParserPool&lt;/code&gt; to have &lt;code&gt;ignoreComments = false&lt;/code&gt;, it is vulnerable to the exploit. For example, the following configurations are vulnerable:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Unsafe Java Configuration with &lt;code&gt;StaticBasicParserPool&lt;/code&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="listingblock"&gt;
+&lt;div class="content"&gt;
+&lt;pre class="prettyprint highlight"&gt;&lt;code class="language-java" data-lang="java"&gt;// NOT secure!!!
+@Bean(initMethod = "initialize")
+ParserPool parserPool() {
+    StaticBasicParserPool pool = new StaticBasicParserPool();
+    // DO NOT set ignoreComments = false opens up exploit
+    pool.setIgnoreComments(false);
+    return pool;
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Unsafe Java Configuration with &lt;code&gt;BasicParserPool&lt;/code&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="listingblock"&gt;
+&lt;div class="content"&gt;
+&lt;pre class="prettyprint highlight"&gt;&lt;code class="language-java" data-lang="java"&gt;// NOT secure!!!
+@Bean
+ParserPool parserPool() {
+    BasicParserPool pool = new BasicParserPool();
+    // DO NOT set ignoreComments = false opens up exploit
+    pool.setIgnoreComments(false);
+    return pool;
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Unsafe XML Configuration with &lt;code&gt;StaticBasicParserPool&lt;/code&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="listingblock"&gt;
+&lt;div class="content"&gt;
+&lt;pre class="prettyprint highlight"&gt;&lt;code class="language-xml" data-lang="xml"&gt;&amp;lt;!-- NOT secure!!! --&amp;gt;
+&amp;lt;bean id="parserPool" init-method="initialize"
+           class="org.opensaml.xml.parse.StaticBasicParserPool"&amp;gt;
+    &amp;lt;!-- DO NOT set ignoreComments = false opens up exploit --&amp;gt;
+    &amp;lt;property name="ignoreComments" value="false"/&amp;gt;
+&amp;lt;/bean&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Unsafe XML Configuration with &lt;code&gt;BasicParserPool&lt;/code&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="listingblock"&gt;
+&lt;div class="content"&gt;
+&lt;pre class="prettyprint highlight"&gt;&lt;code class="language-xml" data-lang="xml"&gt;&amp;lt;!-- NOT secure!!! --&amp;gt;
+&amp;lt;bean id="parserPool" class="org.opensaml.xml.parse.BasicParserPool"&amp;gt;
+    &amp;lt;!-- DO NOT set ignoreComments = false opens up exploit --&amp;gt;
+    &amp;lt;property name="ignoreComments" value="false"/&amp;gt;
+&amp;lt;/bean&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="sect1"&gt;
+&lt;h2 id="safe-configurations"&gt;&lt;a class="anchor" href="#safe-configurations"&gt;&lt;/a&gt;Safe Configurations&lt;/h2&gt;
+&lt;div class="sectionbody"&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;The following configurations are safe:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Safe Java Configuration with &lt;code&gt;StaticBasicParserPool&lt;/code&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="listingblock"&gt;
+&lt;div class="content"&gt;
+&lt;pre class="prettyprint highlight"&gt;&lt;code class="language-java" data-lang="java"&gt;@Bean(initMethod = "initialize")
+ParserPool parserPool() {
+    StaticBasicParserPool pool = new StaticBasicParserPool();
+    // ignoreComments default is true (safe)
+    return pool;
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Safe Java Configuration with &lt;code&gt;BasicParserPool&lt;/code&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="listingblock"&gt;
+&lt;div class="content"&gt;
+&lt;pre class="prettyprint highlight"&gt;&lt;code class="language-java" data-lang="java"&gt;@Bean(initMethod = "initialize")
+ParserPool parserPool() {
+    BasicParserPool pool = new BasicParserPool();
+    // ignoreComments default is true (safe)
+    return pool;
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Safe XML Configuration with &lt;code&gt;StaticBasicParserPool&lt;/code&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="listingblock"&gt;
+&lt;div class="content"&gt;
+&lt;pre class="prettyprint highlight"&gt;&lt;code class="language-xml" data-lang="xml"&gt;&amp;lt;bean id="parserPool" class="org.opensaml.xml.parse.StaticBasicParserPool"&amp;gt;
+    &amp;lt;!-- ignoreComments default is true (safe) --&amp;gt;
+&amp;lt;/bean&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Safe XML Configuration with &lt;code&gt;BasicParserPool&lt;/code&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="listingblock"&gt;
+&lt;div class="content"&gt;
+&lt;pre class="prettyprint highlight"&gt;&lt;code class="language-xml" data-lang="xml"&gt;&amp;lt;bean id="parserPool" init-method="initialize"
+           class="org.opensaml.xml.parse.BasicParserPool"&amp;gt;
+    &amp;lt;!-- ignoreComments default is true (safe) --&amp;gt;
+&amp;lt;/bean&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="sect1"&gt;
+&lt;h2 id="unsafe-paserpool-configurations"&gt;&lt;a class="anchor" href="#unsafe-paserpool-configurations"&gt;&lt;/a&gt;Unsafe PaserPool Configurations&lt;/h2&gt;
+&lt;div class="sectionbody"&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Now is probably a good time to review additional &lt;a href="https://shibboleth.net/community/advisories/secadv_20131213.txt"&gt;unsafe configurations&lt;/a&gt;. Specifically, the following &lt;code&gt;ParserPool&lt;/code&gt; properties are UNSAFE:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="ulist"&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;It is UNSAFE to set &lt;code&gt;expandEntityReferences&lt;/code&gt; to &lt;code&gt;true&lt;/code&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;It is UNSAFE to set &lt;code&gt;javax.xml.XMLConstants.FEATURE_SECURE_PROCESSING&lt;/code&gt; to &lt;code&gt;false&lt;/code&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;It is UNSAFE to set  &lt;a href="http://apache.org/xml/features/disallow-doctype-decl"&gt;disallow-doctype-decl&lt;/a&gt; to &lt;code&gt;false&lt;/code&gt;. This is a Xerces-specific feature, including derivatives such as the internal JAXP implementations supplied with the Oracle and OpenJDK JREs. For other JAXP implementations, read the documentation for your particular implementation for how to achieve a similar configuration.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;It is UNSAFE to set &lt;code&gt;ignoreComments&lt;/code&gt; to &lt;code&gt;false&lt;/code&gt; (as discussed in this article)&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;</content>
+  </entry>
   <entry>
     <title>Spring Session Apple SR1 Released</title>
     <link rel="alternate" href="https://spring.io/blog/2018/03/01/spring-session-apple-sr1-released" />
@@ -1102,18 +1260,5 @@ This is useful in conjunction with the &lt;code&gt;IntegrationFlowContext&lt;/co
   &lt;li&gt;Adam Cowley has a nice post on using Spring Boot with Neo4j, though I think this misses an exciting &lt;a href="https://www.adamcowley.co.uk/neo4j/using-the-neo4j-driver-in-spring-boot/"&gt;opportunity to look more deeply at Spring Data Neo4j&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;Spring community legend Michael Simons has a nice &lt;a href="http://info.michael-simons.eu/2018/02/13/revised-actuators-in-spring-boot-2/"&gt;post on the new Spring Boot Actuator support in Spring Boot 2.0&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;</content>
-  </entry>
-  <entry>
-    <title>Spring Framework 5.0.4 available now</title>
-    <link rel="alternate" href="https://spring.io/blog/2018/02/19/spring-framework-5-0-4-available-now" />
-    <category term="releases" label="Releases" />
-    <author>
-      <name>Stéphane Nicoll</name>
-    </author>
-    <id>tag:spring.io,2018-02-19:3172</id>
-    <updated>2018-02-19T12:25:08Z</updated>
-    <content type="html">&lt;p&gt;On behalf of the team, I am pleased to announce that Spring Framework 5.0.4 &lt;a href="http://projects.spring.io/spring-framework"&gt;is available now&lt;/a&gt;. &lt;/p&gt;
-&lt;p&gt;This maintenance release is the base for the upcoming second release candidate of Spring Boot 2 and &lt;a href="https://jira.spring.io/jira/secure/ReleaseNote.jspa?projectId=10000&amp;version=16629"&gt;includes 59 fixes and selected improvements&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;&lt;a href="http://projects.spring.io/spring-framework/"&gt;Project Page&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-framework"&gt;GitHub&lt;/a&gt; | &lt;a href="https://jira.spring.io/browse/SPR"&gt;Issues&lt;/a&gt; | &lt;a href="https://docs.spring.io/spring-framework/docs/5.0.4.RELEASE/spring-framework-reference"&gt;Documentation&lt;/a&gt;&lt;/p&gt;</content>
   </entry>
 </feed>
