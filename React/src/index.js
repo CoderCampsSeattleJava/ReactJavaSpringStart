@@ -1,10 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import { HomePage, Dashboard, Register, Videos } from './screens';
+import { HomePage, Dashboard, Register, Videos, Courses } from './screens';
 import LoginForm from './LoginForm/LoginForm';
 import { Provider } from 'react-redux';
 import { store } from './redux/store';
+
 
 
 const Router1 = ({ store }) => (
@@ -16,6 +17,7 @@ const Router1 = ({ store }) => (
       <Route path="/Register" component={Register} />
       <Route path="/LoginForm" component={LoginForm} />
       <Route path='/Videos' component={Videos} />
+      <Route path='/Courses' component={Courses} />
   </div>    
   </Router>
   </Provider>
