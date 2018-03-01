@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import { HomePage, Dashboard, Register, Videos, Courses } from './screens';
+import { HomePage, Dashboard, Register, Videos, Courses, ShoppingCart } from './screens';
 import LoginForm from './LoginForm/LoginForm';
 import { Provider } from 'react-redux';
 import { store } from './redux/store';
-
+import './styles.css';
 
 
 const Router1 = ({ store }) => (
