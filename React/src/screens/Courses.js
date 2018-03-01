@@ -5,6 +5,7 @@ import Spin from 'react-reveal/Spin';
 import Shake from 'react-reveal/Shake';
 import Center from 'react-center';
 import ResponsiveContainer from 'react-responsive-widget';
+import RubberBand from 'react-reveal/RubberBand';
 
 class Courses extends React.Component {
     constructor(props) {
@@ -45,15 +46,20 @@ class Courses extends React.Component {
             course2: 'HTML',
             course3: 'React.js',
         };
+        const { course_name, course_id } = this.state
+        const isEnabled =
+        course_id.length > 1 &&
+        course_name.length > 1 ;
 
         return (
             <ResponsiveContainer>
                 <Center>
                     <div>
-                        <Spin><Spin> <Spin><Spin><Shake> <Shake><Spin><Spin> <Spin><Spin><Spin><Spin><Spin><Spin><Shake><Shake><Spin><Spin><Spin><Spin>
-                            <img src={backgroundtest} width={250} height={250} />
-                        </Spin></Spin></Spin></Spin></Shake></Shake></Spin></Spin></Spin></Spin></Spin></Spin></Spin></Spin></Shake></Shake></Spin></Spin></Spin></Spin>
-                        <select value={this.state.course_name}
+                   <Center> <RubberBand> <h2>Add Multiple COURSES to your FAVOURITES, do not forget your LEVEL :)</h2></RubberBand> </Center>
+                      <Center>  <Spin><Spin> <Spin><Spin><Shake> <Shake><Spin><Spin> <Spin><Spin><Spin><Spin><Spin><Spin><Shake><Shake><Spin><Spin><Spin><Spin>
+                         <img src={backgroundtest} width={250} height={250} />
+                        </Spin></Spin></Spin></Spin></Shake></Shake></Spin></Spin></Spin></Spin></Spin></Spin></Spin></Spin></Shake></Shake></Spin></Spin></Spin></Spin></Center>
+                      <Center>  <select value={this.state.course_name}
                             onChange={evt => this.setState({ course_name: evt.target.value })}
 
                         // onChange={this.handleSubmit1}
@@ -77,7 +83,7 @@ class Courses extends React.Component {
                             <option value="888">Advance-L3</option>
 
                         </select>
-                        <button onClick={e => this.onSubmit(e)}>Submit!</button>
+                        <RubberBand><RubberBand><button disabled={!isEnabled} onClick={e => this.onSubmit(e)}>Submit!</button></RubberBand></RubberBand></Center>
                     </div>
                 </Center>
             </ResponsiveContainer>

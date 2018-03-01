@@ -66,7 +66,7 @@ export default class Register extends React.Component {
      e.preventDefault();
 
  
-      //  this.props.history.push('./Courses');
+      this.props.history.push('./Courses');
 
 
     const { first_name, last_name, home_state, email, username, password, password_conf } = this.state;
