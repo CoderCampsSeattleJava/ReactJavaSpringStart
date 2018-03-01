@@ -26,6 +26,14 @@ module.exports = {
         test: /\.js$/,
         use: ["babel-loader"],
         exclude: /node_modules/
+      },
+      {   
+         test: /\.pug$/,
+         use: 'pug-loader'
+      },
+      {
+          test: /\.png | svg$/,
+          use: 'file-loader'
       }
     ]
   }

@@ -9,7 +9,7 @@ import {  BrowserRouter as Router, Route } from 'react-router-dom';
 const Router1 = () => (
    <Router>
    <div>
-       <Route path="/HomePage" component={HomePage} />
+       <Route path="/Homepage" component={HomePage} />
        <Route path="/Dashboard" component={Dashboard} />
        <Route path="/Register" component={Register}/>
        <Route path='/Videos' component={Videos}/>
