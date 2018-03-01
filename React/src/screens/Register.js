@@ -5,13 +5,10 @@ import TextField from 'material-ui/TextField';
 import Center from 'react-center';
 import backgroundtest from './images/backgroundtest.png';
 import Zoom from 'react-reveal/Zoom';
-<<<<<<< HEAD:React/src/screens/Register.js
-=======
 // import Courses from './Courses';
 // import jwt from  'jsonwebtoken';
 // import { doesNotThrow } from 'assert';
 
->>>>>>> master:React/src/screens/Register.js
 
 
 function validate(first_name, last_name, home_state, email, username, password, password_conf) {
