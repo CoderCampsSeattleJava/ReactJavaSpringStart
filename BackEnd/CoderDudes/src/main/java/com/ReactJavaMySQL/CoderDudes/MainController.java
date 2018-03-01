@@ -34,7 +34,6 @@ public class MainController {
 		return "Saved in DB 'POST'";
 	}
 	
-	
 	@GetMapping(path="/add")
 	public @ResponseBody String addNewUser (@RequestParam  String first_name, @RequestParam String last_name, @RequestParam String email, @RequestParam String home_state, 
 			@RequestParam String username, @RequestParam String password, @RequestParam String password_conf) {
@@ -53,7 +52,7 @@ public class MainController {
 	
 	
 	@GetMapping(path="/users")
-	public @ResponseBody User getUser(@RequestParam long id) {
+	public @ResponseBody User getUser(@RequestParam String id) {
 		
 		return userRepository.findOne(id);
 	}
@@ -67,6 +66,11 @@ public class MainController {
 	@RequestMapping(value = "/")
 	public String index() {
 		return "index";
+	}
+	
+	@RequestMapping(path = "/login")
+	public String login() {
+		return "login";
 	}
 	
 }
