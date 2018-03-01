@@ -4,6 +4,7 @@ import org.springframework.data.repository.CrudRepository;
 
 public interface UserRepository extends CrudRepository<User, Long> {
 
+	public User findOneByUsername(String username);
 	User findById(long user_id);
 
 	static Object findAll(String string) {

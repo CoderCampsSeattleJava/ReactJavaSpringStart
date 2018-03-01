@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { NavLink } from 'react-router-dom';
-import { Navbar, NavbarBrand, NavbarToggle, Collapse, NavItem, Nav } from "react-bootstrap";
+// import { NavLink } from 'react-router-dom';
+// import { Navbar, NavbarBrand, NavbarToggle, Collapse, NavItem, Nav } from "react-bootstrap";
 
 class HomePage extends Component {
     render() {
