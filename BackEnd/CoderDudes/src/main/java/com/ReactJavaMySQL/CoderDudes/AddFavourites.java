@@ -15,19 +15,28 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class AddFavourites {
 
 	@Autowired
-	private FavouritesRepository favouritesRepository;
+	private UserRepository userRepo;
+	
+	@Autowired
+	private CourseRepository courseRepo;
 
 	@PostMapping(path="/favourites")
-	public @ResponseBody <S> String postFavs (@RequestParam long user_id, @RequestParam String course_id) {
+	public @ResponseBody String postFavs(@RequestParam long user_id, @RequestParam Long course_id) {
 		
-		Favourite n = new Favourite();
-		n.setUserId(user_id);
-		n.setCourseId(course_id);
-		favouritesRepository.save(n);
+		User currentUser = userRepo.findById(user_id);
+		Courses selectedCourse = courseRepo.findOne(course_id);
+		
+		selectedCourse.addUser(currentUser);
+		courseRepo.save(selectedCourse);
+		
+//		Favourite n = new Favourite();
+//		n.setUserId(user_id);
+//		n.setCourseId(course_id);
+//		favouritesRepository.save(n);
 		return "Saved in FAVOURITES";
 	}
 	
-	@GetMapping(path="/favourites")
+	/*@GetMapping(path="/favourites")
 	public @ResponseBody Favourite getFavourites(@RequestParam long user_id) {
 		
 		return favouritesRepository.findOne(user_id);
@@ -41,6 +50,6 @@ public class AddFavourites {
 	@RequestMapping(value = "/")
 	public String index() {
 		return "index";
-	}
+	}*/
 
 }
