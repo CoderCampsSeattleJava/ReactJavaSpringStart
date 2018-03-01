@@ -1,10 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './styles.css';
-import { HomePage, Dashboard, Register, Videos } from './screens';
+import { HomePage, Dashboard, Register, Videos, Courses, ShoppingCart } from './screens';
 import {  BrowserRouter as Router, Route } from 'react-router-dom';
-import LoginPage from './screens/login/LoginPage';
-
 
 
  
@@ -13,9 +11,11 @@ const Router1 = () => (
    <div>
        <Route path="/HomePage" component={HomePage} />
        <Route path="/Dashboard" component={Dashboard} />
-       <Route path="/Register" component={Register} />
-       <Route path="/LoginPage" component={LoginPage} />
-       <Route path='/Videos' component={Videos} />
+       <Route path="/Register" component={Register}/>
+       <Route path='/Videos' component={Videos}/>
+       <Route path='/Courses' component={Courses}/>
+           <Route path='/ShoppingCart' component={ShoppingCart}/>
+
           </div>
    </Router>
 );
@@ -25,13 +25,4 @@ ReactDOM.render(
     <Router1 />, document.getElementById('root')
     
   );
-
-
-
-
-
-
-
-
-
 
