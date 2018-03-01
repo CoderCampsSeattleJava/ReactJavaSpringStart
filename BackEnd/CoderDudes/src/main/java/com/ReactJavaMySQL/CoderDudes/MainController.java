@@ -52,7 +52,7 @@ public class MainController {
 	
 	
 	@GetMapping(path="/users")
-	public @ResponseBody User getUser(@RequestParam String id) {
+	public @ResponseBody User getUser(@RequestParam Long id) {
 		
 		return userRepository.findOne(id);
 	}

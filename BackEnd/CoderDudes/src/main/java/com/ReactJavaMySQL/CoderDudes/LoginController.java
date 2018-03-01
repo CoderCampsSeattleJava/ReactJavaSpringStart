@@ -12,11 +12,16 @@ public class LoginController {
 		UserRepository userRepository;
 		
 		@PostMapping("/login")
-		public void login(@RequestBody User userDetails) {
+		public User login(@RequestBody User userDetails) {
 			
-			User foundUser = userRepository.findOne(userDetails.getUsername());
-			if(foundUser == null) {
-				userRepository.save(userDetails);
+			User foundUser = userRepository.findOneByUsername(userDetails.getUsername());
+			System.out.println(foundUser.getPassword().equals(userDetails.getPassword()));
+			if(foundUser != null && foundUser.getPassword().equals(userDetails.getPassword())) {
+				foundUser.setPassword(null);
+				foundUser.setPassword_Conf(null);
+				return foundUser;
+			} else {
+				return null;
 			}
 		}
 		

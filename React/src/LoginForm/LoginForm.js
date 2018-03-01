@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import { login } from '../redux/reducer';
 import './LoginForm.css';
 
+import { userActions } from '../_actions';
+
 class LoginForm extends Component {
 
   constructor(props) {
@@ -41,12 +43,7 @@ class LoginForm extends Component {
 
   onSubmit(e) {
     e.preventDefault();
-    let { email, password } = this.state;
-    this.props.login(email, password);
-    this.setState({
-      email: '',
-      password: ''
-    });
+    
   }
 }
 
