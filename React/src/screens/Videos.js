@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import ResponsiveContainer from 'react-responsive-widget';
-import Dashboard from '../screens/Dashboard';
-import Iframe from 'react-iframe';
 import backgroundtest from './images/backgroundtest.png';
 import Zoom from 'react-reveal/Zoom';
 import Roll from 'react-reveal/Roll';
