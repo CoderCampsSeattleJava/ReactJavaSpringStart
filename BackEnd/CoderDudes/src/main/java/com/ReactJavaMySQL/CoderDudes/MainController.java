@@ -52,7 +52,7 @@ public class MainController {
 	
 	
 	@GetMapping(path="/users")
-	public @ResponseBody User getUser(@RequestParam long id) {
+	public @ResponseBody User getUser(@RequestParam Long id) {
 		
 		return userRepository.findOne(id);
 	}
@@ -66,6 +66,11 @@ public class MainController {
 	@RequestMapping(value = "/")
 	public String index() {
 		return "index";
+	}
+	
+	@RequestMapping(path = "/login")
+	public String login() {
+		return "login";
 	}
 	
 }
