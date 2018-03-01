@@ -35,21 +35,13 @@ function validate(first_name, last_name, home_state, email, username, password, 
   if (email.indexOf('.') === -1) {
     errors.push("Email should contain at least one dot");
   }
-  // if (password.length, password_conf.length < 8) {
-  //   errors.push("Password should be at least 8 characters long");
-  // }
-
-  // if (password.length < 8 != password_conf.length < 8) {
-  //   errors.push("Passwords should match");
-  // }
 
   return errors;
 }
 
-
 export default class Register extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       first_name: '',
       last_name: '',
@@ -66,10 +58,11 @@ export default class Register extends React.Component {
   }
 
 
-
   handleSubmit(e) {
-    e.preventDefault();
-    this.props.history.push('./Dashboard');
+     e.preventDefault();
+
+ 
+      this.props.history.push('./Courses');
 
 
     const { first_name, last_name, home_state, email, username, password, password_conf } = this.state;
@@ -86,8 +79,19 @@ export default class Register extends React.Component {
   onSubmit = (e) => {
 
     axios.post(`http://localhost:8080/api/post?first_name=${this.state.first_name}&last_name=${this.state.last_name}&home_state=${this.state.home_state}&email=${this.state.email}&username=${this.state.username}&password=${this.state.password}&password_conf=${this.state.password_conf}`)
-      .then((Response) => {
-        console.log(Response, "Registered successfully");
+        .then((response) => {
+        // function setAuthorizationToken(token) {
+        //   if(token) {
+        //       axios.defaults.headers.common['authorization'] = `Bearer ${token}`;
+        //       console.log('HOLAAA')
+        //   } else {
+        //       delete axios.defaults.headers.common['authorization'];
+        //       console.long("Hellou?")
+        //   }
+      // }
+      // let {token, username} = response.data;
+      // localStorage.setItem('token', token);
+        console.log(response, "Saved here");
 
       });
 
