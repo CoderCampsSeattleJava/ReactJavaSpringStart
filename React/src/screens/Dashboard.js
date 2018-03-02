@@ -6,6 +6,8 @@ import js from './images/js.jpg';
 import react from './images/react.png';
 import java from './images/java.png';
 import jquery from './images/jquery.png';
+import backgroundtest from './images/backgroundtest.png';
+import Zoom from 'react-reveal/Zoom';
 
 
 
@@ -15,12 +17,12 @@ const Container1 = (props) => {
       <Row>
         <Col xs={6} md={2}>
           <ListGroup className="listgroupstyle">
-            <ListGroupItem eventKey={1} href='https://www.javascript.com/'>< img type="image" src={js} width={30} height={30} />Java Script</ListGroupItem>
-            <ListGroupItem eventKey={2} href='https://www.java.com/'>< img type="image" src={java} width={30} height={30} />Java Script</ListGroupItem>
-            <ListGroupItem eventKey={3} href='https://www.w3schools.com/css/css_website_layout.asp'>< img type="image" src={css} width={30} height={30} />CSS</ListGroupItem>
-            <ListGroupItem eventKey={4} href='https://www.w3schools.com/html/'>< img type="image" src={html} width={30} height={30} />HTML</ListGroupItem>
-            <ListGroupItem eventKey={5} href='https://jquery.com/'>< img type="image" src={jquery} width={30} height={30} />JQuery</ListGroupItem>
-            <ListGroupItem eventKey={6} href='https://reactjs.org'>< img type="image" src={react} width={30} height={30} />React.js</ListGroupItem>
+            <ListGroupItem eventKey={1} href='https://www.javascript.com/'>< img type="image" src={js} width={30} height={30} />  Java Script</ListGroupItem>
+            <ListGroupItem eventKey={2} href='https://www.java.com/'>< img type="image" src={java} width={30} height={30} />  Java Script</ListGroupItem>
+            <ListGroupItem eventKey={3} href='https://www.w3schools.com/css/css_website_layout.asp'>< img type="image" src={css} width={30} height={30} />  CSS</ListGroupItem>
+            <ListGroupItem eventKey={4} href='https://www.w3schools.com/html/'>< img type="image" src={html} width={30} height={30} />  HTML</ListGroupItem>
+            <ListGroupItem eventKey={5} href='https://jquery.com/'>< img type="image" src={jquery} width={30} height={30} />  JQuery</ListGroupItem>
+            <ListGroupItem eventKey={6} href='https://reactjs.org'>< img type="image" src={react} width={30} height={30} />  React.js</ListGroupItem>
           </ListGroup>
         </Col>
         <Col xs={12} md={10}>
@@ -28,6 +30,11 @@ const Container1 = (props) => {
             <h1>Hello, world!</h1>
             <p>
               This is a simple hero unit, a simple jumbotron-style component for calling
+             extra attention to featured content or information. This is a simple hero unit, a simple jumbotron-style component for calling
+             extra attention to featured content or information. This is a simple hero unit, a simple jumbotron-style component for calling
+             extra attention to featured content or information. This is a simple hero unit, a simple jumbotron-style component for calling
+             extra attention to featured content or information.This is a simple hero unit, a simple jumbotron-style component for calling
+             extra attention to featured content or information.This is a simple hero unit, a simple jumbotron-style component for calling
              extra attention to featured content or information.
            </p>
             <p>
@@ -47,6 +54,8 @@ const Navbar1 = (props) => {
       <Navbar.Header>
         <Nav>
           <NavItem eventKey={4} href="/HomePage">
+            <div>
+              <Zoom><img src={backgroundtest} width={150} height={150} /></Zoom></div>
             <h1> Coder Dudes </h1>
           </NavItem>
         </Nav>
@@ -78,8 +87,6 @@ class Dashboard extends Component {
       <div>
         <Navbar1 />
         <Container1 />
-
-
       </div>
     );
   };

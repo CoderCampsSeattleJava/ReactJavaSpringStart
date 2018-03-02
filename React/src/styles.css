@@ -124,6 +124,10 @@ h3 {
 
  }
 
+ h1 { color:whitesmoke;
+ }
+
+ 
 .listgroupstyle{
         color: blue;
         font-size: 15px;
@@ -141,4 +145,5 @@ h3 {
         height: 30vh;
         background: url("https://mdbootstrap.com/img/Photos/Others/img (23).jpg") no-repeat 25% 25%;
         background-size: cover;
- }
+}
+

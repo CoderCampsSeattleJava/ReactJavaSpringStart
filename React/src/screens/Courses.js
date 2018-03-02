@@ -36,7 +36,7 @@ class Courses extends React.Component {
 
         axios.post(`http://localhost:8080/api2/favcourses?course_name=${this.state.course_name}&course_id=${this.state.course_id}`)
             .then((response) => {
-
+                this.props.history.push('./Dashboard');
                 console.log(response, "Not Yet");
             });
     }
@@ -68,7 +68,6 @@ class Courses extends React.Component {
                         </Spin></Spin></Spin></Spin></Shake></Shake></Spin></Spin></Spin></Spin></Spin></Spin></Spin></Spin></Shake></Shake></Spin></Spin></Spin></Spin></Center>
                         <Center>  <select style={{ color: blue900, fontWeight: "bold", fontSize: "medium" }} value={this.state.course_name}
                             onChange={evt => this.setState({ course_name: evt.target.value })}
-                        // onChange={this.handleSubmit1}
                         >
                             <option style={{ color: blue900, fontWeight: "bold", fontSize: "medium" }} value="N/A">Select Course</option>
                             <option style={{ color: blue900, fontWeight: "bold", fontSize: "large" }} value="Java10">Java</option>
@@ -81,7 +80,6 @@ class Courses extends React.Component {
                         </select>
                             <select style={{ color: blue900, fontWeight: "bold", fontSize: "medium" }} value={this.state.course_id}
                                 onChange={evt => this.setState({ course_id: evt.target.value })}
-                            // onChange={this.handleSubmit2}
                             >
                                 <option style={{ color: blue900, fontWeight: "bold", fontSize: "medium" }} value="N/A">Select Level</option>
                                 <option style={{ color: blue900, fontWeight: "bold", fontSize: "large" }} value="111">Beginner-L1</option>
@@ -94,14 +92,12 @@ class Courses extends React.Component {
                             </RubberBand></RubberBand></Center>
                         <br />
                     </div>
-
                     <div className="header">
-                        <p>Walae, Tyler, Nacho  </p>
+                        <p>Walae, Tyler, Nacho</p>
                     </div>
-
                 </Center>
-            </header> </ResponsiveContainer>
-
+            </header>
+            </ResponsiveContainer>
         );
     }
 }
