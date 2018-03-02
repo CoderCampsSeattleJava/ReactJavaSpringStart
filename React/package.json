@@ -18,6 +18,7 @@
     "material-ui": "^0.20.0",
     "mysql": "^2.15.0",
     "popper.js": "^1.12.9",
+    "react-addons-css-transition-group": "^15.6.2",
     "react-background-image-loader": "0.0.5",
     "react-bootstrap": "^0.32.1",
     "react-bootstrap-select": "^0.14.0",
