@@ -95,10 +95,10 @@ export default class Register extends React.Component {
 
     return (
 
-      <MuiThemeProvider>
+      <MuiThemeProvider><header>
         <Center>
           <div>
-            <div style={{ fontWeight: "bold", color: "#0F86AC", fontSize: "x-large" }}>Register Here!
+            <div style={{ fontWeight: "bold", color: "white", fontSize: "xx-large" }}>Register Here!
             <Zoom><img src={backgroundtest} width={150} height={150} /></Zoom></div>
 
             <form onSubmit={this.handleSubmit}>
@@ -112,7 +112,7 @@ export default class Register extends React.Component {
                 type="text"
                 title="A-Z a-z characters only"
                 hintText="Enter First Name"
-                floatingLabelText='First Name' 
+                floatingLabelText='First Name'
                 minLength='1'
                 maxLength='45'
                 required
@@ -124,7 +124,7 @@ export default class Register extends React.Component {
                 type="text"
                 title="A-Z a-z characters only"
                 hintText='Enter Last Name'
-                floatingLabelText='Last Name' 
+                floatingLabelText='Last Name'
                 minLength='1'
                 maxLength='45'
                 required
@@ -136,7 +136,7 @@ export default class Register extends React.Component {
                 type="text"
                 title="2 state initials only ex.(UT Utah)"
                 hintText='Home State Initials'
-                floatingLabelText='Home State' 
+                floatingLabelText='Home State'
                 minLength='2'
                 maxLength='2'
                 required
@@ -148,7 +148,7 @@ export default class Register extends React.Component {
                 type="email"
                 title="Must contain @ and . ex. (mail@email.com)"
                 hintText='Enter your email'
-                floatingLabelText='Email' 
+                floatingLabelText='Email'
                 minLength='5'
                 required
               /><br />
@@ -159,7 +159,7 @@ export default class Register extends React.Component {
                 type="text"
                 title="8 - 16 Characters"
                 hintText='Username'
-                floatingLabelText='Username' 
+                floatingLabelText='Username'
                 minLength='8'
                 maxLength='15'
                 required
@@ -171,7 +171,7 @@ export default class Register extends React.Component {
                 type="password"
                 title="8 to 16 characters"
                 hintText='Please enter a Password'
-                floatingLabelText='Password' 
+                floatingLabelText='Password'
                 minLength='8'
                 maxLength='15'
                 required
@@ -185,16 +185,16 @@ export default class Register extends React.Component {
                 hintText='Re-enter previous Password'
                 minLength='8'
                 maxLength='15'
-                floatingLabelText='Re-enter P/W' 
+                floatingLabelText='Re-enter PW'
                 required
               /> <br />
               {/* <ImageUploader imgExtension={['.jpg', '.gif', '.png', '.gif']}
               /> */}
-              <Zoom> <RaisedButton label="Register" fullWidth={true} labelColor={blueA100} type="submit" disabled={!isEnabled} onClick={e => this.onSubmit(e)}Register/> </Zoom>
+              <Zoom> <RaisedButton label="Register" fullWidth={true} labelColor={blueA100} type="submit" disabled={!isEnabled} onClick={e => this.onSubmit(e)} Register /> </Zoom>
             </form>
           </div>
         </Center>
-      </MuiThemeProvider>
+      </header> </MuiThemeProvider>
     );
   }
 }

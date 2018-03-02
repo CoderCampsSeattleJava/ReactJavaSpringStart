@@ -57,7 +57,7 @@ class Videos extends Component {
     }
     render() {
         return (
-            <ResponsiveContainer>
+            <ResponsiveContainer><header>
 
                 <a href='https://www.youtube.com/'>< img type="image" title='YouTube.com' src={youtubeicon} width={30} height={30} align='right' /></a>
                 <a href='https://www.facebook.com'>< img type="image" title="facebook.com" src={facebookicon} width={30} height={30} align='right' /></a>
@@ -106,7 +106,7 @@ class Videos extends Component {
                 </Center>
 
                 <Button id='backtodash' bsStyle="primary" onClick={this.handleClick}>Back to Dashboard</Button>
-            </ResponsiveContainer>
+           </header> </ResponsiveContainer>
         );
     }
 }
