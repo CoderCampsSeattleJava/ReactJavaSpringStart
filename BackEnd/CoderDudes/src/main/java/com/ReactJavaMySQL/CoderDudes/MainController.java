@@ -54,7 +54,7 @@ public class MainController {
 	@GetMapping(path="/users")
 	public @ResponseBody User getUser(@RequestParam Long id) {
 		
-		return userRepository.findOne(id);
+		return userRepository.findById(id);
 	}
 	
 	@GetMapping(path="/all")
@@ -68,9 +68,9 @@ public class MainController {
 		return "index";
 	}
 	
-	@RequestMapping(path = "/login")
-	public String login() {
-		return "login";
-	}
+//	@RequestMapping(path = "/login")
+//	public String login() {
+//		return "login";
+//	}
 	
 }

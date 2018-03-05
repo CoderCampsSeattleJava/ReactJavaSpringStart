@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+
 // import { NavLink } from 'react-router-dom';
 // import { Navbar, NavbarBrand, NavbarToggle, Collapse, NavItem, Nav } from "react-bootstrap";
 
@@ -16,9 +17,8 @@ class HomePage extends Component {
                         </div>
                         <div className="menu">
                             <ul>
-                                <li><a href="#">Home</a></li>
-                                <li><a href="#">Register</a></li>
-                                <li><a href="#">Login</a></li>
+                                <li><a href="/Register">Register</a></li>
+                                <li><a href="/LoginPage">Login</a></li>
                             </ul>
                         </div>
                     </nav>
