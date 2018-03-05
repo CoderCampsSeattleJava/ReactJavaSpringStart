@@ -34,19 +34,17 @@ class Courses extends React.Component {
 
     onSubmit = (e) => {
 
-        // axios.post(`http://localhost:8080/api2/favcourses?course_name=${this.state.course_name}&course_id=${this.state.course_id}`)
-        //     .then((response) => {
-        //         this.props.history.push('./Dashboard');
-        //         console.log(response, "Not Yet");
-        //     });
-
+        axios.post(`http://localhost:8080/api2/favcourses?course_name=${this.state.course_name}&course_id=${this.state.course_id}`)
+            .then((response) => {
+                this.props.history.push('./Dashboard');
+                console.log(response, "Not Yet");
+            });
         // axios.defaults.headers.common['Authorization'] = store.getState().session.token;
 
-        axios.post(`http://localhost:8080/api3/favourites?user_id=${this.state.user_id}&course_id=${this.state.course_id}`)
-.then((response) => {
-    console.log(Response, "FAV TABLE")
-});
-
+        //         axios.post(`http://localhost:8080/api3/favourites?user_id=${this.state.user_id}&course_id=${this.state.course_id}`)
+        // .then((response) => {
+        //     console.log(Response, "FAV TABLE")
+        // });
     }
 
     render() {
