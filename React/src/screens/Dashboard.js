@@ -17,8 +17,8 @@ const Container1 = (props) => {
       <Row>
         <Col xs={6} md={2}>
           <ListGroup className="listgroupstyle">
-            <ListGroupItem eventKey={1} href='https://www.javascript.com/'>< img type="image" src={js} width={30} height={30} />  Java Script</ListGroupItem>
-            <ListGroupItem eventKey={2} href='https://www.java.com/'>< img type="image" src={java} width={30} height={30} />  Java Script</ListGroupItem>
+            <ListGroupItem eventKey={1} href='https://www.javascript.com/'>< img type="image" src={js} width={30} height={30} />  JavaScript</ListGroupItem>
+            <ListGroupItem eventKey={2} href='https://www.java.com/'>< img type="image" src={java} width={30} height={30} />  Java</ListGroupItem>
             <ListGroupItem eventKey={3} href='https://www.w3schools.com/css/css_website_layout.asp'>< img type="image" src={css} width={30} height={30} />  CSS</ListGroupItem>
             <ListGroupItem eventKey={4} href='https://www.w3schools.com/html/'>< img type="image" src={html} width={30} height={30} />  HTML</ListGroupItem>
             <ListGroupItem eventKey={5} href='https://jquery.com/'>< img type="image" src={jquery} width={30} height={30} />  JQuery</ListGroupItem>
@@ -33,8 +33,6 @@ const Container1 = (props) => {
              extra attention to featured content or information. This is a simple hero unit, a simple jumbotron-style component for calling
              extra attention to featured content or information. This is a simple hero unit, a simple jumbotron-style component for calling
              extra attention to featured content or information. This is a simple hero unit, a simple jumbotron-style component for calling
-             extra attention to featured content or information.This is a simple hero unit, a simple jumbotron-style component for calling
-             extra attention to featured content or information.This is a simple hero unit, a simple jumbotron-style component for calling
              extra attention to featured content or information.
            </p>
             <p>

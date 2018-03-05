@@ -16,9 +16,9 @@ class HomePage extends Component {
                         </div>
                         <div className="menu">
                             <ul>
-                                <li><a href="#">Home</a></li>
-                                <li><a href="#">Register</a></li>
-                                <li><a href="#">Login</a></li>
+                                <li><a href="./homepage">Home</a></li>
+                                <li><a href="./register">Register</a></li>
+                                {/* <li><a href="./loginform">Login</a></li> */}
                             </ul>
                         </div>
                     </nav>
