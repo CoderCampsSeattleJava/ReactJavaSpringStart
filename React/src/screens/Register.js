@@ -94,107 +94,106 @@ export default class Register extends React.Component {
       password === password_conf;
 
     return (
-
-      <MuiThemeProvider><header>
-        <Center>
-          <div>
-            <div style={{ fontWeight: "bold", color: "white", fontSize: "xx-large" }}>Register Here!
+      <MuiThemeProvider>
+        <header>
+          <Center>
+            <div>
+              <div style={{ fontWeight: "bold", color: "white", fontSize: "xx-large" }}>Register Here!
             <Zoom><img src={backgroundtest} width={150} height={150} /></Zoom></div>
 
-            <form onSubmit={this.handleSubmit}>
-              {errors.map(error => (
-                <p key={error}>Error: {error}</p>
-              ))}
+              <form onSubmit={this.handleSubmit}>
+                {errors.map(error => (
+                  <p key={error}>Error: {error}</p>
+                ))}
 
-              <TextField id='first_name'
-                value={this.state.first_name}
-                onChange={evt => this.setState({ first_name: evt.target.value })}
-                type="text"
-                title="A-Z a-z characters only"
-                hintText="Enter First Name"
-                floatingLabelText='First Name'
-                minLength='1'
-                maxLength='45'
-                required
-              /><br />
+                <TextField id='first_name'
+                  value={this.state.first_name}
+                  onChange={evt => this.setState({ first_name: evt.target.value })}
+                  type="text"
+                  title="A-Z a-z characters only"
+                  hintText="Enter First Name"
+                  floatingLabelText='First Name'
+                  minLength='1'
+                  maxLength='45'
+                  required
+                /><br />
 
-              <TextField id='last_name'
-                value={this.state.last_name}
-                onChange={evt => this.setState({ last_name: evt.target.value })}
-                type="text"
-                title="A-Z a-z characters only"
-                hintText='Enter Last Name'
-                floatingLabelText='Last Name'
-                minLength='1'
-                maxLength='45'
-                required
-              /><br />
+                <TextField id='last_name'
+                  value={this.state.last_name}
+                  onChange={evt => this.setState({ last_name: evt.target.value })}
+                  type="text"
+                  title="A-Z a-z characters only"
+                  hintText='Enter Last Name'
+                  floatingLabelText='Last Name'
+                  minLength='1'
+                  maxLength='45'
+                  required
+                /><br />
 
-              <TextField id="home_state"
-                value={this.state.home_state}
-                onChange={evt => this.setState({ home_state: evt.target.value })}
-                type="text"
-                title="2 state initials only ex.(UT Utah)"
-                hintText='Home State Initials'
-                floatingLabelText='Home State'
-                minLength='2'
-                maxLength='2'
-                required
-              /><br />
+                <TextField id="home_state"
+                  value={this.state.home_state}
+                  onChange={evt => this.setState({ home_state: evt.target.value })}
+                  type="text"
+                  title="2 state initials only ex.(UT Utah)"
+                  hintText='Home State Initials'
+                  floatingLabelText='Home State'
+                  minLength='2'
+                  maxLength='2'
+                  required
+                /><br />
 
-              <TextField id='email'
-                value={this.state.email}
-                onChange={evt => this.setState({ email: evt.target.value })}
-                type="email"
-                title="Must contain @ and . ex. (mail@email.com)"
-                hintText='Enter your email'
-                floatingLabelText='Email'
-                minLength='5'
-                required
-              /><br />
+                <TextField id='email'
+                  value={this.state.email}
+                  onChange={evt => this.setState({ email: evt.target.value })}
+                  type="email"
+                  title="Must contain @ and . ex. (mail@email.com)"
+                  hintText='Enter your email'
+                  floatingLabelText='Email'
+                  minLength='5'
+                  required
+                /><br />
 
-              <TextField id='username'
-                value={this.state.username}
-                onChange={evt => this.setState({ username: evt.target.value })}
-                type="text"
-                title="8 - 16 Characters"
-                hintText='Username'
-                floatingLabelText='Username'
-                minLength='8'
-                maxLength='15'
-                required
-              /><br />
+                <TextField id='username'
+                  value={this.state.username}
+                  onChange={evt => this.setState({ username: evt.target.value })}
+                  type="text"
+                  title="8 - 16 Characters"
+                  hintText='Username'
+                  floatingLabelText='Username'
+                  minLength='8'
+                  maxLength='15'
+                  required
+                /><br />
 
-              <TextField id='password'
-                value={this.state.password}
-                onChange={evt => this.setState({ password: evt.target.value })}
-                type="password"
-                title="8 to 16 characters"
-                hintText='Please enter a Password'
-                floatingLabelText='Password'
-                minLength='8'
-                maxLength='15'
-                required
-              /><br />
+                <TextField id='password'
+                  value={this.state.password}
+                  onChange={evt => this.setState({ password: evt.target.value })}
+                  type="password"
+                  title="8 to 16 characters"
+                  hintText='Please enter a Password'
+                  floatingLabelText='Password'
+                  minLength='8'
+                  maxLength='15'
+                  required
+                /><br />
 
-              <TextField id='password_conf'
-                value={this.state.password_conf}
-                onChange={evt => this.setState({ password_conf: evt.target.value })}
-                type="password"
-                title="Must match previous Password, 8 to 16 characters"
-                hintText='Re-enter previous Password'
-                minLength='8'
-                maxLength='15'
-                floatingLabelText='Re-enter PW'
-                required
-              /> <br />
-              {/* <ImageUploader imgExtension={['.jpg', '.gif', '.png', '.gif']}
-              /> */}
-              <Zoom> <RaisedButton label="Register" fullWidth={true} labelColor={blueA100} type="submit" disabled={!isEnabled} onClick={e => this.onSubmit(e)} Register /> </Zoom>
-            </form>
-          </div>
-        </Center>
-      </header> </MuiThemeProvider>
+                <TextField id='password_conf'
+                  value={this.state.password_conf}
+                  onChange={evt => this.setState({ password_conf: evt.target.value })}
+                  type="password"
+                  title="Must match previous Password, 8 to 16 characters"
+                  hintText='Re-enter previous Password'
+                  minLength='8'
+                  maxLength='15'
+                  floatingLabelText='Re-enter PW'
+                  required
+                /> <br />
+                <Zoom> <RaisedButton label="Register" fullWidth={true} labelColor={blueA100} type="submit" disabled={!isEnabled} onClick={e => this.onSubmit(e)} Register /> </Zoom>
+              </form>
+            </div>
+          </Center>
+        </header>
+      </MuiThemeProvider>
     );
   }
 }

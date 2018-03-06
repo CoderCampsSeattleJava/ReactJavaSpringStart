@@ -9,6 +9,7 @@ import RubberBand from 'react-reveal/RubberBand';
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
 import { red100, blue900 } from 'material-ui/styles/colors';
+import { Button } from 'react-bootstrap';
 
 class Courses extends React.Component {
     constructor(props) {
@@ -18,19 +19,35 @@ class Courses extends React.Component {
             course_id: '',
         };
 
-        this.handleSubmit1 = this.handleSubmit1.bind(this);
-        this.handleSubmit2 = this.handleSubmit2.bind(this);
+
+        this.handleClick1 = this.handleClick1.bind(this);
+        this.handleClick2 = this.handleClick2.bind(this);
+        this.handleClick3 = this.handleClick3.bind(this);
+
     }
 
-    handleSubmit1(e) {
+    handleClick1(e) {
         e.preventDefault();
-        console.log("Course name posted");
+        this.props.history.push('./Dashboard');
+    }
+    handleClick2(e) {
+        e.preventDefault();
+        this.props.history.push('./Homepage');
+    }
+    handleClick3(e) {
+        e.preventDefault();
+        this.props.history.push('./Videos');
     }
 
-    handleSubmit2(e) {
-        e.preventDefault();
-        console.log("Course ID posted");
-    }
+    // handleSubmit1(e) {
+    //     e.preventDefault();
+    //     console.log("Course name posted");
+    // }
+
+    // handleSubmit2(e) {
+    //     e.preventDefault();
+    //     console.log("Course ID posted");
+    // }
 
     onSubmit = (e) => {
 
@@ -39,12 +56,6 @@ class Courses extends React.Component {
                 this.props.history.push('./Dashboard');
                 console.log(response, "Not Yet");
             });
-        // axios.defaults.headers.common['Authorization'] = store.getState().session.token;
-
-        //         axios.post(`http://localhost:8080/api3/favourites?user_id=${this.state.user_id}&course_id=${this.state.course_id}`)
-        // .then((response) => {
-        //     console.log(Response, "FAV TABLE")
-        // });
     }
 
     render() {
@@ -95,7 +106,11 @@ class Courses extends React.Component {
                             </select>
                             <RubberBand><RubberBand>
                                 <button style={{ color: blue900, fontWeight: "bold", fontSize: "medium" }} disabled={!isEnabled} onClick={e => this.onSubmit(e)}>Submit!</button>
-                            </RubberBand></RubberBand></Center>
+                            </RubberBand></RubberBand>
+                            <Button className='backtodash' bsStyle="primary" onClick={this.handleClick1}>Back to Dashboard</Button>
+                            <Button className='backtodash' bsStyle="primary" onClick={this.handleClick2}>Back to Home</Button>
+                            <Button className='backtodash' bsStyle="primary" onClick={this.handleClick3}>Go to Videos</Button>
+                        </Center>
                         <br />
                     </div>
                 </Center>
