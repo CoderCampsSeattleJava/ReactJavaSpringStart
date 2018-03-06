@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Navbar, Nav, MenuItem, NavDropdown, NavItem, PageHeader, Grid, Row, Col, ListGroup, ListGroupItem, Jumbotron, Button, } from 'react-bootstrap';
+import {Grid, Row, Col, ListGroup, ListGroupItem, Jumbotron, Button, } from 'react-bootstrap';
 import html from './images/html.png';
 import css from './images/css.png';
 import js from './images/js.jpg';
@@ -17,6 +17,7 @@ import spring from './images/spring.png';
 import Center from "react-center";
 import ResponsiveContainer from 'react-responsive-widget';
 import Shake from 'react-reveal/Shake';
+
 
 
 const Container1 = (props) => {
@@ -74,31 +75,26 @@ const Container1 = (props) => {
 
 const Navbar1 = (props) => {
   return (
-    <div className='container-fluid'>
-      <Navbar className='header2'>
-        <Navbar.Header>
-          <Nav>
-            <NavItem eventKey={4} href="/HomePage">
-              <h1> Coder Dudes </h1>
-            </NavItem>
-          </Nav>
-        </Navbar.Header>
-        <Nav>
-          <NavItem eventKey={1} href="#Logout">
-            Logout
-   </NavItem>
-          <NavItem eventKey={2} href="https://github.com/">
-            Github
-   </NavItem>
-          <ResponsiveContainer>
-            <NavDropdown eventKey={3} title="Documentation" id="basic-nav-dropdown">
-              <MenuItem eventKey={3.1} href="https://reactjs.org/">React</MenuItem>
-              <MenuItem eventKey={3.2} href="https://react-bootstrap.github.io/">React Bootstrap</MenuItem>
-            </NavDropdown>
-          </ResponsiveContainer>
-        </Nav>
-      </Navbar>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="HomePage">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="Videos">Videos</a>
+        </li>
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"/>
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
     </div>
+  </nav>
 
   );
 }
