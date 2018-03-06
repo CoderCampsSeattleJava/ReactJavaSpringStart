@@ -9,7 +9,7 @@ body {
 }
 header {
             width: 100%;
-            height: 100vh;
+            height: 110vh;
             background: url("https://mdbootstrap.com/img/Photos/Others/img (23).jpg") no-repeat 50% 50%;
             background-size: cover;
 }
@@ -116,20 +116,77 @@ nav ul li a {
            font-weight: lighter;
 }
 
-
-
-h3 { font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  color: blue;
+h3 { 
+  color: white;
   display: block;
   margin-right: 15;
  }
 
  h2 { color:black;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
-
  }
 
  h6{ padding: 1cm 2cm 1cm 2cm;
-  color: blue;
+  color:white;
 
  }
+
+ h1 { color:whitesmoke;
+
+ }
+
+ 
+.listgroupstyle{
+        color: blue;
+        font-size: 15px;
+       }
+
+.header1{
+       width: 100%;
+       height: 60vh;
+       background: url("https://mdbootstrap.com/img/Photos/Others/img (23).jpg") no-repeat 25% 25%;
+       background-size: cover;
+}
+
+.header2{
+        width: 'auto';
+        height: 30vh;
+        background: url("https://mdbootstrap.com/img/Photos/Others/img (23).jpg") no-repeat 50% 50%;
+        background-size: cover;
+}
+
+p{
+        color: white;
+        text-align: justify;
+        padding-top: 10px;
+        padding-right: 20px;
+        padding-bottom: 1px;
+        padding-left: 10px
+}
+
+.videosbackgroundimage {
+        width: 'auto';
+        height: 150vh;
+        background: url("https://mdbootstrap.com/img/Photos/Others/img (23).jpg") no-repeat 50% 50%;
+        background-size: cover;
+}
+
+.videopadding{
+        padding-top: 5px;
+        padding-right: 5px;
+        padding-bottom: 5px;
+        padding-left: 5px;
+        border: 2px solid blue;
+}
+
+.backgroundimagecourses{
+        width: 'auto';
+        height: 150vh;
+        background: url("https://bootstrapcreative.com/wp-bc/wp-content/uploads/2017/03/learning-story.png") top center no-repeat;
+     
+        background-size: cover;
+}
+
+.backtodash{
+        position: relative;
+        top: 65px; right: 65px;
+}
