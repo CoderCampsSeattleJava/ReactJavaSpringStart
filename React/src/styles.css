@@ -117,21 +117,9 @@ nav ul li a {
            font-size: 24px;
            font-weight: lighter;
 }
-<<<<<<< HEAD
-.container p {
-        color: black;
-        font-size: 25px;
-}
- 
-
-
-h3 { font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  color: blue;
-=======
 
 h3 { 
   color: white;
->>>>>>> master
   display: block;
   margin-right: 15;
  }
