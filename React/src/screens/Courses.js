@@ -93,10 +93,15 @@ class Courses extends React.Component {
 
                             <RubberBand>
                                 <RubberBand>
-                                    <Button style={{ color: blue900, fontWeight: "bold", fontSize: "large" }} bsStyle="primary" disabled={!isEnabled} onClick={e => this.onSubmit(e)}>Submit!</Button>
+                                    <Button style={{ color: blue900, fontWeight: "bold", fontSize: "large" }} bsStyle="primary" disabled={!isEnabled} alert="add more" onClick={e => this.onSubmit(e)}>Submit!</Button>
                                 </RubberBand>
                             </RubberBand>
                         </Center>
+                    </div>
+                </Center>
+                <Center>
+                    <div>
+                        <h6>Thank you for visiting our website!</h6>
                     </div>
                 </Center>
             </header>
