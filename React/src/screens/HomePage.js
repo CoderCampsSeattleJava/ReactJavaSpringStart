@@ -1,12 +1,9 @@
 import React, { Component } from 'react';
-<<<<<<< HEAD
 import { findDOMNode } from 'react-dom';
 import $ from 'jquery';
-=======
 import logoo from './images/logoo.png';
 // import { NavLink } from 'react-router-dom';
 // import { Navbar, NavbarBrand, NavbarToggle, Collapse, NavItem, Nav } from "react-bootstrap";
->>>>>>> master
 
 class HomePage extends Component {
     render() {
@@ -18,11 +15,7 @@ class HomePage extends Component {
                             <i className="fa fa-bars fa-2x"></i>
                         </div>
                         <div className="logo">
-<<<<<<< HEAD
-                            Coder Dudes University
-=======
                         <img className="logoo" src={logoo} />
->>>>>>> master
                         </div>
                         <div className="menu">
                             <ul>
