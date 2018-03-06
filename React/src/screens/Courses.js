@@ -6,6 +6,7 @@ import Shake from 'react-reveal/Shake';
 import Center from 'react-center';
 import ResponsiveContainer from 'react-responsive-widget';
 import RubberBand from 'react-reveal/RubberBand';
+import { connect } from 'react-redux';
 
 class Courses extends React.Component {
     constructor(props) {
@@ -30,8 +31,8 @@ class Courses extends React.Component {
     }
 
     onSubmit = (e) => {
-
-        axios.post(`http://localhost:8080/api2/favcourses?course_name=${this.state.course_name}&course_id=${this.state.course_id}`)
+        e.preventDefault();
+        axios.post(`http://localhost:8080/api3/favourites?user_id=${this.props.userId}&course_id=${this.state.course_id}`)
             .then((response) => {
 
                 console.log(response, "Not Yet");
@@ -39,7 +40,7 @@ class Courses extends React.Component {
     }
 
     render() {
-
+        console.log("UserID: " + this.props.userId);
         const learningCourses = {
             name: 'Courses',
             course1: 'Java',
@@ -47,9 +48,8 @@ class Courses extends React.Component {
             course3: 'React.js',
         };
         const { course_name, course_id } = this.state
-        const isEnabled =
-        course_id.length > 1 &&
-        course_name.length > 1 ;
+        let isEnabled =
+        course_id > 0; 
 
         return (
             <ResponsiveContainer>
@@ -59,30 +59,21 @@ class Courses extends React.Component {
                       <Center>  <Spin><Spin> <Spin><Spin><Shake> <Shake><Spin><Spin> <Spin><Spin><Spin><Spin><Spin><Spin><Shake><Shake><Spin><Spin><Spin><Spin>
                          <img src={backgroundtest} width={250} height={250} />
                         </Spin></Spin></Spin></Spin></Shake></Shake></Spin></Spin></Spin></Spin></Spin></Spin></Spin></Spin></Shake></Shake></Spin></Spin></Spin></Spin></Center>
-                      <Center>  <select value={this.state.course_name}
-                            onChange={evt => this.setState({ course_name: evt.target.value })}
+                      <Center>  <select value={this.state.course_id}
+                            onChange={evt => this.setState({ course_id: evt.target.value })}
 
                         // onChange={this.handleSubmit1}
                         >
-                            <option value="N/A">Select Course</option>
-                            <option value="Java10">Java</option>
-                            <option value="HTML20">HTML</option>
-                            <option value="CSS30">CSS</option>
-                            <option value="EcmaScript40">EcmaScript JS</option>
-                            <option value="React.js50">React.js</option>
-                            <option value="JQuery60">JQuery</option>
-                            <option value="Bootstrap70">Bootstrap</option>
+                            <option value="0">Select Course</option>
+                            <option value="1">Java</option>
+                            <option value="2">HTML</option>
+                            <option value="3">CSS</option>
+                            <option value="4">EcmaScript JS</option>
+                            <option value="5">React.js</option>
+                            <option value="6">JQuery</option>
+                            <option value="7 ">Bootstrap</option>
                         </select>
-                        <select value={this.state.course_id}
-                            onChange={evt => this.setState({ course_id: evt.target.value })}
-                        // onChange={this.handleSubmit2}
-                        >
-                            <option value="N/A">Select Level</option>
-                            <option value="111">Beginner-L1</option>
-                            <option value="444">Medium-L2</option>
-                            <option value="888">Advance-L3</option>
 
-                        </select>
                         <RubberBand><RubberBand><button disabled={!isEnabled} onClick={e => this.onSubmit(e)}>Submit!</button></RubberBand></RubberBand></Center>
                     </div>
                 </Center>
@@ -92,4 +83,10 @@ class Courses extends React.Component {
     }
 }
 
-export default Courses;
+const mapStateToProps = state => {
+    return {
+        userId: state.userId,
+    };
+};
+
+export default connect(mapStateToProps)(Courses);

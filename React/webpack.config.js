@@ -36,5 +36,13 @@ module.exports = {
           use: 'file-loader'
       }
     ]
+  },
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader']
+      }
+    ]
   }
 };
