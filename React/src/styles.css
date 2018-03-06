@@ -182,14 +182,9 @@ p{
 
 .backgroundimagecourses{
         width: 'auto';
-        height: 150vh;
+        height: 100vh;
         background: url("https://bootstrapcreative.com/wp-bc/wp-content/uploads/2017/03/learning-story.png") top center no-repeat;
-     
         background-size: cover;
 }
 
-/* .backtodash{
-        position: relative;
-        top: 65px; right: 80px;
-        } */
 
