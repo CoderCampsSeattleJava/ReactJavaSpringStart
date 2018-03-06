@@ -58,7 +58,7 @@ export default class Register extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.history.push('./loginform');
+    this.props.history.push('./loginpage');
 
     const { first_name, last_name, home_state, email, username, password, password_conf } = this.state;
 
