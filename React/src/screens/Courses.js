@@ -65,7 +65,7 @@ class Courses extends React.Component {
                         <Center>
                             <RubberBand>
                                 <div style={{ fontWeight: "bold", color: "white", fontSize: "xx-large" }}>
-                                    Add one to your favourites
+                                    Add your Favourites
 </div>
                                 <div>
                                     <Button className='backtodash' bsStyle="primary" style={{ color: white100, fontWeight: "bold", fontSize: "large" }} onClick={this.handleClick1}>Back to Dashboard</Button>

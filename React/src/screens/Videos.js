@@ -58,7 +58,7 @@ class Videos extends Component {
     render() {
         return (
             <ResponsiveContainer>
-                <div className="videosbackgroundimage">
+                <div>
                     <a href='https://www.youtube.com/'>< img type="image" title='YouTube.com' src={youtubeicon} width={30} height={30} align='right' /></a>
                     <a href='https://www.facebook.com'>< img type="image" title="facebook.com" src={facebookicon} width={30} height={30} align='right' /></a>
                     <a href='https://www.instagram.com/'>< img type="image" title="instagram" src={instagramicon} width={30} height={30} align='right' /></a>
@@ -66,7 +66,7 @@ class Videos extends Component {
                     <a href='https://www.indeed.com/'>< img type="image" title='indeed' src={indeedicon} width={30} height={30} align='right' /></a>
 
                     <div style={{ backgroundColor: "white" }}>
-                        <Center><h2>Coder Dudes - Featured Videos</h2></Center></div>
+                        <Center><h1>Coder Dudes - Featured Videos</h1></Center></div>
 
                     <Button style={{ color: blue900, fontWeight: "bold", fontSize: "large" }} bsStyle="primary" onClick={this.handleClick}>Back to Dashboard</Button>
                     <Zoom><img src={backgroundtest} width={120} height={120} /></Zoom>
@@ -88,8 +88,10 @@ class Videos extends Component {
                             <h6>Thank you for visiting our website!</h6>
                         </div>
                     </Center>
-
                     <Button style={{ color: blue900, fontWeight: "bold", fontSize: "large" }} bsStyle="primary" onClick={this.handleClick}>Back to Dashboard</Button>
+
+                    <h6>Thank you for visiting our website!</h6>
+
                 </div>
             </ResponsiveContainer>
         );

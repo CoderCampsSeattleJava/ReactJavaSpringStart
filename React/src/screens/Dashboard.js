@@ -84,7 +84,7 @@ const Navbar1 = (props) => {
           </Nav>
         </Navbar.Header>
         <Nav>
-          <NavItem eventKey={1} href="#Logout">
+          <NavItem eventKey={1} href="/HomePage">
             Logout
    </NavItem>
           <NavItem eventKey={2} href="https://github.com/">
