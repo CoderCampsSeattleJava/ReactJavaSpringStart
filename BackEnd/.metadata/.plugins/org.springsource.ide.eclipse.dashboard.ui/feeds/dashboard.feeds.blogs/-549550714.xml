@@ -5,7 +5,31 @@
   <link rel="self" href="https://spring.io/blog.atom" />
   <id>http://spring.io/blog.atom</id>
   <icon>https://spring.io/favicon.ico</icon>
-  <updated>2018-03-06T15:01:29Z</updated>
+  <updated>2018-03-06T17:52:14Z</updated>
+  <entry>
+    <title>Security issue in Spring Data REST (CVE-2017-8046)</title>
+    <link rel="alternate" href="https://spring.io/blog/2018/03/06/security-issue-in-spring-data-rest-cve-2017-8046" />
+    <category term="engineering" label="Engineering" />
+    <author>
+      <name>Oliver Gierke</name>
+    </author>
+    <id>tag:spring.io,2018-03-06:3203</id>
+    <updated>2018-03-06T17:52:14Z</updated>
+    <content type="html">&lt;p&gt;Last fall, a security vulnerability affecting Spring Data REST was discovered. We patched the affected modules and published a &lt;a href="https://pivotal.io/security/cve-2017-8046"&gt;CVE&lt;/a&gt;. We&amp;rsquo;ve seen some recent news about this that&amp;rsquo;s led to confusion. Here&amp;rsquo;s the scoop:&lt;/p&gt;&lt;h2&gt;&lt;a href="#tl-dr" class="anchor" name="tl-dr"&gt;&lt;/a&gt;tl;dr:&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;There was a security vulnerability allowing arbitrary code execution in Spring Data REST up to version 2.6.8 and 3.0.0.&lt;/li&gt;
+  &lt;li&gt;This vulnerability has been fixed in the following versions:&lt;br/&gt;&amp;ndash; Spring Data REST 2.6.9 (Ingalls SR9, Oct. 27th, 2017), included in Spring Boot 1.5.9 (Oct, 28th 2017).&lt;br/&gt;&amp;ndash; Spring Data REST 3.0.1 (Kay SR1, Oct. 27th 2017), included in Spring Boot 2.0 M6, (Nov. 6th 2017)&lt;/li&gt;
+  &lt;li&gt;The CVE was originally published at the end of September 2017. We originally thought that we had fixed the issue with releases that had been published a couple of days before. Subsequent feedback showed that this wasn&amp;rsquo;t the case and the issue was eventually fixed in October / November 2017. Regrettably, the CVE was not updated to reflect this. The team is working on making sure that this lack of update does not happen again.&lt;/li&gt;
+&lt;/ul&gt;&lt;h2&gt;&lt;a href="#the-reality" class="anchor" name="the-reality"&gt;&lt;/a&gt;The reality&lt;/h2&gt;
+&lt;p&gt;We saw some stories that got a few details wrong. Let&amp;rsquo;s clear things up:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;At no point in time &amp;ldquo;various Spring modules&amp;rdquo; have been affected. The issue has existed in Spring Data REST only.&lt;/li&gt;
+  &lt;li&gt;When the CVE states a Spring Boot version affected, it does &lt;em&gt;not&lt;/em&gt; mean that every Spring Boot project is affected. Only projects that use the particular Spring Data REST module are. We only state the Spring Boot versions in CVEs to allow users to quickly identify whether or not the version of Spring Boot that they are using contains a vulnerable version of Spring Data.&lt;/li&gt;
+  &lt;li&gt;Some publications create the impression that all REST APIs built with Spring – including ones manually coded with Spring MVC – are affected. That&amp;rsquo;s not the case. Only Spring Data REST based ones are.&lt;/li&gt;
+&lt;/ul&gt;&lt;h2&gt;&lt;a href="#recommendations" class="anchor" name="recommendations"&gt;&lt;/a&gt;Recommendations&lt;/h2&gt;
+&lt;p&gt;We generally recommend to upgrade to new bugfix releases of individual Spring modules as soon as possible. The team also takes great care to coordinate releases so that a Spring Boot release bundling the latest bug- and security fixes is published very close to the releases of the ecosystem projects.&lt;/p&gt;
+&lt;p&gt;For security relevant upgrades, please make sure you monitor our &lt;a href="https://pivotal.io/security"&gt;published CVE list&lt;/a&gt; to find out about releases shipping security fixes immediately.&lt;/p&gt;</content>
+  </entry>
   <entry>
     <title>Using Spring Security 5 to integrate with OAuth 2-secured services such as Facebook and GitHub</title>
     <link rel="alternate" href="https://spring.io/blog/2018/03/06/using-spring-security-5-to-integrate-with-oauth-2-secured-services-such-as-facebook-and-github" />
@@ -315,13 +339,13 @@ public class SocialConfig {
   &lt;li&gt;Join &lt;a href="https://content.pivotal.io/webinars/mar-13-introducing-spring-boot-2-0-webinar"&gt;the Spring Boot 2.0 launch webinar on March 13th&lt;/a&gt; to learn about it from the source!&lt;/li&gt;
   &lt;li&gt;Spring Boot 2.0 is finally, at long last, here! I wrote about the journey to Spring Boot 2.0 in this Twitter thread, reviewing the history of Spring Boot from 1.0, on the 1st April 2014, to this momentous release. Click and join me &lt;a href="https://twitter.com/starbuxman/status/968960930150100992"&gt;for a #bootiful trip down memory lane&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;Spring Security lead Rob Winch previews the &lt;a href="https://spring.io/blog/2018/03/05/spring-security-saml-roadmap"&gt;Spring Security SAML Roadmap&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Sandra GÃ³mez has put together a &lt;a href="https://blog-es.mimacom.com/documentacion-apis-spring-rest-docs/"&gt;very nice Spanish-language post on documenting APIs with Spring REST Docs&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Sandra Gómez has put together a &lt;a href="https://blog-es.mimacom.com/documentacion-apis-spring-rest-docs/"&gt;very nice Spanish-language post on documenting APIs with Spring REST Docs&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;Guillermo Tantachuco has put together a really nice overview of Project Riff, the &lt;a href="https://content.pivotal.io/blog/building-functions-with-riff?_lrsc=13c8ab0f-8cde-49d7-a5a3-7dc3d8a562d1"&gt;new function-as-a-service offering from Pivotal that runs on top of Kubernetes&lt;/a&gt;.&lt;/li&gt;
   &lt;li&gt;Spring Cloud co-founder Spencer Gibb has just &lt;a href="https://spring.io/blog/2018/03/02/spring-cloud-finchley-m8-is-available"&gt;announced Spring Cloud Finchley M8&lt;/a&gt;, the first release after the recent Spring Boot 2.0 release.&lt;/li&gt;
   &lt;li&gt;Spring Security ninja Joe Grandja has just &lt;a href="https://spring.io/blog/2018/03/01/spring-security-oauth-boot-2-auto-config-2-0-0-released"&gt;announced the Spring Security OAuth Boot 2.0 auto-configuration has been released&lt;/a&gt;. It&amp;rsquo;s used to help users transition between the old Spring Security OAuth 2.x support and the next generation OAuth 2.0 Support in Spring Security 5. It provides users of Spring Security OAuth 2.x the same auto-configuration capabilities in a Spring Boot 2.0 based application that is currently available in Spring Boot 1.5.x. For more details please refer to the documentation.&lt;/li&gt;
   &lt;li&gt;Spring Security lead Rob Winch chimes in on the state of &lt;a href="https://spring.io/blog/2018/03/01/spring-security-saml-and-this-week-s-saml-vulnerability"&gt;Spring Security SAML and this week&amp;rsquo;s SAML Vulnerability&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Spring Session ninja Vedran PaviÄ‡ has just announced Spring Session Apple SR1. The new release includes &lt;a href="https://spring.io/blog/2018/03/01/spring-session-apple-sr1-released"&gt;a BOM, and a number of other features&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Project Reactor ninja Simon BaslÃ© &lt;a href="https://spring.io/blog/2018/02/28/reactor-bismuth-sr7-is-out"&gt;announced Reactor BISMUTH-SR7&lt;/a&gt;. The release was the final release needed for Spring Boot 2.0&lt;/li&gt;
+  &lt;li&gt;Spring Session ninja Vedran Pavi? has just announced Spring Session Apple SR1. The new release includes &lt;a href="https://spring.io/blog/2018/03/01/spring-session-apple-sr1-released"&gt;a BOM, and a number of other features&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Project Reactor ninja Simon Baslé &lt;a href="https://spring.io/blog/2018/02/28/reactor-bismuth-sr7-is-out"&gt;announced Reactor BISMUTH-SR7&lt;/a&gt;. The release was the final release needed for Spring Boot 2.0&lt;/li&gt;
   &lt;li&gt;Spring Security lead Rob Winch has just &lt;a href="https://spring.io/blog/2018/02/28/spring-security-5-0-3-released"&gt;announced Spring Security 5.0.3&lt;/a&gt;. This release introduces a major performance improvement.&lt;/li&gt;
   &lt;li&gt;&lt;a href="https://spring.io/blog/2018/02/28/spring-data-kay-sr5-released"&gt;Spring Data Kay SR5 released&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;The &lt;a href="https://docs.gradle.org/4.6/release-notes.html"&gt;new Gradle 4.6 is out&lt;/a&gt; and it is packed with lots of cool features including initial JUnit 5 support, initial bill-of-material (BOM) dependencies and optional dependencies support, &lt;code&gt;--fail-fast&lt;/code&gt; for tests, and custom command line flags for tasks.&lt;/li&gt;
@@ -359,10 +383,10 @@ public class SocialConfig {
     <id>tag:spring.io,2018-03-02:3198</id>
     <updated>2018-03-05T13:54:00Z</updated>
     <content type="html">&lt;div class="paragraph"&gt;
-&lt;p&gt;The Spring Security SAML project has been an integral part of the Spring ecosystem since its inception nearly 9 years ago. This critically important project was born through the incredible effort and contributions of &lt;a href="https://github.com/vschafer"&gt;VladimÃ­r SchÃ¤fer&lt;/a&gt;. Iâ€™d like to take the time to personally thank VladimÃ­r and our fantastic community for their tireless work. Without all of their efforts, this project would not be what it is today.&lt;/p&gt;
+&lt;p&gt;The Spring Security SAML project has been an integral part of the Spring ecosystem since its inception nearly 9 years ago. This critically important project was born through the incredible effort and contributions of &lt;a href="https://github.com/vschafer"&gt;Vladimír Schäfer&lt;/a&gt;. I’d like to take the time to personally thank Vladimír and our fantastic community for their tireless work. Without all of their efforts, this project would not be what it is today.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="paragraph"&gt;
-&lt;p&gt;VladimÃ­r, our amazing community, and the Spring engineering team are planning to team up to enhance Spring Security SAML to achieve the following primary goals:&lt;/p&gt;
+&lt;p&gt;Vladimír, our amazing community, and the Spring engineering team are planning to team up to enhance Spring Security SAML to achieve the following primary goals:&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="ulist"&gt;
 &lt;ul&gt;
@@ -687,7 +711,7 @@ ParserPool parserPool() {
     <id>tag:spring.io,2018-03-01:3196</id>
     <updated>2018-03-01T14:43:55Z</updated>
     <content type="html">&lt;div class="paragraph"&gt;
-&lt;p&gt;&lt;em&gt;This post was authored by &lt;a href="https://github.com/vpavic"&gt;Vedran PaviÄ‡&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;This post was authored by &lt;a href="https://github.com/vpavic"&gt;Vedran Pavi?&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="paragraph"&gt;
 &lt;p&gt;On behalf of the community I&amp;#8217;m pleased to announce the release of Spring Session BOM &lt;code&gt;Apple-SR1&lt;/code&gt;. With the changes to Spring Session modules described in &lt;a href="https://spring.io/blog/2018/01/16/spring-session-2-0-0-released#spring-session-modules"&gt;&lt;code&gt;2.0.0.RELEASE&lt;/code&gt; announcement&lt;/a&gt;, the addition of &lt;a href="https://maven.apache.org/guides/introduction/introduction-to-dependency-mechanism.html#Importing_Dependencies"&gt;bill of materials&lt;/a&gt; (BOM) module was a logical next step.&lt;/p&gt;
@@ -845,7 +869,7 @@ dependencies {
     <link rel="alternate" href="https://spring.io/blog/2018/02/28/reactor-bismuth-sr7-is-out" />
     <category term="releases" label="Releases" />
     <author>
-      <name>Simon BaslÃ©</name>
+      <name>Simon Baslé</name>
     </author>
     <id>tag:spring.io,2018-02-27:3187</id>
     <updated>2018-02-28T17:20:00Z</updated>
@@ -1563,84 +1587,6 @@ public class Blog2Application {&#xD;
 &lt;div class="paragraph"&gt;
 &lt;p&gt;&lt;a href="https://projects.spring.io/spring-kafka/"&gt;Project page&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-kafka"&gt;GitHub&lt;/a&gt; | &lt;a href="https://gitter.im/spring-projects/spring-kafka"&gt;Gitter&lt;/a&gt; | &lt;a href="https://stackoverflow.com/questions/tagged/spring-kafka"&gt;Stack Overflow&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
-&lt;/div&gt;</content>
-  </entry>
-  <entry>
-    <title>Spring Integration 5.0.2 Available</title>
-    <link rel="alternate" href="https://spring.io/blog/2018/02/21/spring-integration-5-0-2-available" />
-    <category term="releases" label="Releases" />
-    <author>
-      <name>Artem Bilan</name>
-    </author>
-    <id>tag:spring.io,2018-02-21:3178</id>
-    <updated>2018-02-21T16:57:20Z</updated>
-    <content type="html">&lt;div class="paragraph"&gt;
-&lt;p&gt;On behalf of the Spring Integration team I am pleased to announce that the &lt;code&gt;5.0.2.RELEASE&lt;/code&gt; maintenance version for the Spring Integration is available.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;It can be downloaded from Maven Central, JCenter, and our &lt;a href="https://repo.spring.io/release"&gt;release repository&lt;/a&gt;:&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="listingblock"&gt;
-&lt;div class="content"&gt;
-&lt;pre class="prettyprint highlight"&gt;&lt;code class="language-java" data-lang="java"&gt;compile "org.springframework.integration:spring-integration-core:5.0.2.RELEASE"&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;As usual I would like to thank all community members for their ongoing active contributions to the framework!&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;Along with upgrades to the latest Spring Framework &lt;code&gt;5.0.4&lt;/code&gt; and Reactor &lt;code&gt;Bismuth-SR6&lt;/code&gt; versions, this Spring Integration &lt;a href="https://jira.spring.io/jira/secure/ReleaseNote.jspa?projectId=10121&amp;amp;version=16635"&gt;support version&lt;/a&gt; provides a number of bug fixes, especially for the &lt;code&gt;@ServiceActivator&lt;/code&gt; with a collection method argument and &lt;code&gt;LockRegistryLeaderInitiator&lt;/code&gt;.
-So, everybody is encouraged to upgrade.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;In addition this release brings several new features:&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="ulist"&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href="http://micrometer.io"&gt;Micrometer&lt;/a&gt; support for gathering messaging component metrics.
-To enable, simply declare a &lt;code&gt;MicrometerMetricsFactory&lt;/code&gt; bean in the application context to override built-in metrics factory:&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div class="listingblock"&gt;
-&lt;div class="content"&gt;
-&lt;pre&gt;@Bean
-public MicrometerMetricsFactory metricsFactory(MeterRegistry meterRegistry) {
-    return new MicrometerMetricsFactory(meterRegistry);
-}&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;Our intention is to make this &lt;code&gt;MicrometerMetricsFactory&lt;/code&gt; the default in the next &lt;code&gt;5.1&lt;/code&gt; version.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="ulist"&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;A &lt;code&gt;UdpServerListeningEvent&lt;/code&gt; has been added to be emitted when a &lt;code&gt;UnicastReceivingChannelAdapter&lt;/code&gt; is ready to receive UDP packages over the network.
-Useful when the configured port is zero and the operating system chooses the port.
-Also useful to avoid polling the &lt;code&gt;isListening()&lt;/code&gt; if you need to wait before starting some other process to connect to the socket.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;The &lt;code&gt;IntegrationGraphController&lt;/code&gt; is now registered for the WebFlux environment as well.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;The &lt;code&gt;@GlobalChannelInterceptor&lt;/code&gt; s can now be applied to dynamically registered &lt;code&gt;MessageChannel&lt;/code&gt; beans, too.
-This is useful in conjunction with the &lt;code&gt;IntegrationFlowContext&lt;/code&gt; when we register &lt;code&gt;IntegrationFlow&lt;/code&gt; s at runtime.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;This version is a foundation for the latest Spring Boot &lt;a href="https://spring.io/blog/2018/02/21/spring-boot-2-0-0-rc2"&gt;2.0 RC2&lt;/a&gt;.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;From here we are looking forward to switch the &lt;code&gt;master&lt;/code&gt; to the &lt;code&gt;5.1&lt;/code&gt; version to start working on new features and valuable improvements!&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;Any feedback, feature ideas, critics, bug reports and questions are welcome via appropriate communication channels:&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;&lt;a href="http://projects.spring.io/spring-integration/"&gt;Project Page&lt;/a&gt; | &lt;a href="https://jira.spring.io/browse/INT"&gt;JIRA&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-integration/blob/master/CONTRIBUTING.adoc"&gt;Contributing&lt;/a&gt; | &lt;a href="http://stackoverflow.com/questions/tagged/spring-integration"&gt;Help&lt;/a&gt; | &lt;a href="https://gitter.im/spring-projects/spring-integration"&gt;Chat&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;</content>
   </entry>
 </feed>
