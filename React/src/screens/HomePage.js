@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import { findDOMNode } from 'react-dom';
 import $ from 'jquery';
 import logoo from './images/logoo.png';
-// import { NavLink } from 'react-router-dom';
-// import { Navbar, NavbarBrand, NavbarToggle, Collapse, NavItem, Nav } from "react-bootstrap";
 
 class HomePage extends Component {
     render() {
@@ -15,12 +13,13 @@ class HomePage extends Component {
                             <i className="fa fa-bars fa-2x"></i>
                         </div>
                         <div className="logo">
-                        <img className="logoo" src={logoo} />
+                            <img className="logoo" src={logoo} />
                         </div>
                         <div className="menu">
                             <ul>
                                 <li><a href="/Register">Register</a></li>
                                 <li><a href="/LoginPage">Login</a></li>
+                                <li><a href="/Dashboard">Dashboard</a></li>
                             </ul>
                         </div>
                     </nav>
@@ -31,7 +30,7 @@ class HomePage extends Component {
                     </div>
                 </header>
                 <main className="text-center py-5">
-                    <div className="container">
+                    <div className="content">
                         <div className="row">
                             <div className="col-md-30">
                                 <p align="justify">Hello, If you want to understand how to program in Java properly, Guess what? you need to have a basic understanding of object orinted programing concepts and how they relate to Java programing.</p>
