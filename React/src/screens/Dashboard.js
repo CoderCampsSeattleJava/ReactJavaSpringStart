@@ -73,7 +73,7 @@ const Container1 = (props) => {
     );
 }
 const Navbar1 = (props) => {
-    return (
+return (
         <div className="wrapper">
             <header>
                 <nav>
