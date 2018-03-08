@@ -17,7 +17,7 @@ body {
 }
 header {
             width: 100%;
-            height: 110vh;
+            height: 70vh;
             background: url("https://mdbootstrap.com/img/Photos/Others/img (23).jpg") no-repeat 50% 50%;
             background-size: cover;
 }
@@ -28,6 +28,13 @@ header {
         height: 150%;
         margin-top: -45%;
 
+}
+.content {
+        width: 85%;
+        margin: 1em auto;
+        font-size: 20px;
+        line-height: 30px;
+        text-align: justify; 
 }
 
 .logo {
@@ -95,7 +102,7 @@ nav ul li a {
    nav ul li {
               box-sizing: border-box;
               width: 100%;
-              padding: 5px 10px;
+              padding: 5px 18px;
               text-align: right;
    }
    .menu-icon {
@@ -125,6 +132,7 @@ nav ul li a {
            color: lightskyblue;
            font-size: 24px;
            font-weight: lighter;
+           text-align: center;
 }
 
 h3 { 
@@ -166,7 +174,7 @@ h3 {
 }
 
 p{
-        color: white;
+        color: black;
         text-align: justify;
         padding-top: 10px;
         padding-right: 20px;
