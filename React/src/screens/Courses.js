@@ -65,7 +65,7 @@ class Courses extends React.Component {
                         <Center>
                             <RubberBand>
                                 <div style={{ fontWeight: "bold", color: "white", fontSize: "xx-large" }}>
-                                    Add COURSES to your FAVOURITES
+                                    Add your Favourites
 </div>
                                 <div>
                                     <Button className='backtodash' bsStyle="primary" style={{ color: white100, fontWeight: "bold", fontSize: "large" }} onClick={this.handleClick1}>Back to Dashboard</Button>
@@ -79,7 +79,7 @@ class Courses extends React.Component {
                             <img src={backgroundtest} width={250} height={250} />
                         </Spin></Spin></Spin></Spin></Shake></Shake></Spin></Spin></Spin></Spin></Spin></Spin></Spin></Spin></Shake></Shake></Spin></Spin></Spin></Spin></Center>
                         <Center>
-                            <select size='3' multiple value={this.state.course_id}
+                            <select size='7' value={this.state.course_id}
                                 onChange={evt => this.setState({ course_id: evt.target.value })}
                             >
                                 <option style={{ color: blue900, fontWeight: "bold", fontSize: "large" }} value="1">Java</option>
@@ -93,10 +93,15 @@ class Courses extends React.Component {
 
                             <RubberBand>
                                 <RubberBand>
-                                    <Button style={{ color: blue900, fontWeight: "bold", fontSize: "large" }} bsStyle="primary" disabled={!isEnabled} onClick={e => this.onSubmit(e)}>Submit!</Button>
+                                    <Button style={{ color: blue900, fontWeight: "bold", fontSize: "large" }} bsStyle="primary" disabled={!isEnabled} alert="add more" onClick={e => this.onSubmit(e)}>Submit!</Button>
                                 </RubberBand>
                             </RubberBand>
                         </Center>
+                    </div>
+                </Center>
+                <Center>
+                    <div>
+                        <h6>Thank you for visiting our website!</h6>
                     </div>
                 </Center>
             </header>

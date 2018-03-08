@@ -136,12 +136,14 @@ nav ul li a {
 }
 
 h3 { 
-  color: white;
+  color:rgb(3, 3, 80);
   display: block;
+  font-style: italic;
   margin-right: 15;
  }
 
  h2 { color:black;
+        font-size: 20px;
  }
 
  h6{ padding: 1cm 2cm 1cm 2cm;
@@ -149,7 +151,9 @@ h3 {
 
  }
 
- h1 { color:whitesmoke;
+ h1 { color:rgb(9, 7, 114);
+        font-size: 30px;
+
 
  }
 
@@ -196,14 +200,13 @@ p{
         padding-left: 5px;
         border: 2px solid blue;
 }
-
+/* 
 .backgroundimagecourses{
         width: 'auto';
-        height: 150vh;
+        height: 10vh;
         background: url("https://bootstrapcreative.com/wp-bc/wp-content/uploads/2017/03/learning-story.png") top center no-repeat;
-     
         background-size: cover;
-}
+} */
 
 
 
