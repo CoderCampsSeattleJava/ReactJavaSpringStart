@@ -73,36 +73,6 @@ const Container1 = (props) => {
     );
 }
 const Navbar1 = (props) => {
-<<<<<<< HEAD
-  return (
-    <div className='container-fluid'>
-      <Navbar className='header2'>
-        <Navbar.Header>
-          <Nav>
-            <NavItem eventKey={4} href="/HomePage">
-              <h1> Coder Dudes </h1>
-            </NavItem>
-          </Nav>
-        </Navbar.Header>
-        <Nav>
-          <NavItem eventKey={1} href="/HomePage">
-            Logout
-   </NavItem>
-          <NavItem eventKey={2} href="https://github.com/">
-            Github
-   </NavItem>
-          <ResponsiveContainer>
-            <NavDropdown eventKey={3} title="Documentation" id="basic-nav-dropdown">
-              <MenuItem eventKey={3.1} href="https://reactjs.org/">React</MenuItem>
-              <MenuItem eventKey={3.2} href="https://react-bootstrap.github.io/">React Bootstrap</MenuItem>
-            </NavDropdown>
-          </ResponsiveContainer>
-        </Nav>
-      </Navbar>
-    </div>
-
-  );
-=======
 return (
         <div className="wrapper">
             <header>
@@ -133,7 +103,6 @@ class Dashboard extends Component {
             </div>
         )
     }
->>>>>>> master
 }
 
 
